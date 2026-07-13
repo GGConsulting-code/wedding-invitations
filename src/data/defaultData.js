@@ -18,7 +18,7 @@ export const localAdminUser = Object.freeze({
 export const defaultWeddingConfig = Object.freeze({
   id: "5f4378f1-d75e-42af-965f-d4bba407a445",
   version: 1,
-  coupleDisplayName: "Gerardo & Raquel",
+  coupleDisplayName: "Gerardo & Raquel", 
   presentationText:
     "Con mucha alegría queremos compartir contigo el comienzo de nuestra nueva historia.",
   weddingDateTime: "2026-08-15T17:00:00-06:00",

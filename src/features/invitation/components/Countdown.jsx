@@ -30,15 +30,20 @@ export function Countdown({ weddingDateTime }) {
 
   return (
     <section className="invitation-countdown" aria-labelledby="countdown-title">
-      <p className="invitation-section__eyebrow">Faltan</p>
-      <h2 id="countdown-title" className="invitation-section__title">Para nuestro gran día</h2>
+      <p className="invitation-countdown__kicker">Time left until</p>
+      <h2 id="countdown-title" className="invitation-countdown__heading">The wedding</h2>
       <div className="invitation-countdown__grid" role="timer" aria-label={accessibleLabel}>
-        {COUNTDOWN_UNITS.map(([key, label]) => (
-          <div className="invitation-countdown__unit" key={key}>
-            <span className="invitation-countdown__value" aria-hidden="true">
-              {formatUnit(countdown[key])}
-            </span>
-            <span className="invitation-countdown__label" aria-hidden="true">{label}</span>
+        {COUNTDOWN_UNITS.map(([key, label], index) => (
+          <div className="invitation-countdown__fragment" key={key}>
+            <div className="invitation-countdown__unit">
+              <span className="invitation-countdown__value" aria-hidden="true">
+                {formatUnit(countdown[key])}
+              </span>
+              <span className="invitation-countdown__label" aria-hidden="true">{label}</span>
+            </div>
+            {index < COUNTDOWN_UNITS.length - 1 ? (
+              <span className="invitation-countdown__separator" aria-hidden="true">:</span>
+            ) : null}
           </div>
         ))}
       </div>

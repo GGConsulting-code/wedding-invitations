@@ -120,6 +120,9 @@ export function PublicInvitationPage() {
         <InvitationHero
           coupleDisplayName={event.coupleDisplayName}
           presentationText={event.presentationText}
+          heroPhoto={event.photos?.[0]}
+          weddingDateTime={event.weddingDateTime}
+          timeZone={event.timeZone}
         />
 
         <motion.section
@@ -130,9 +133,12 @@ export function PublicInvitationPage() {
           transition={{ duration: 0.55 }}
           aria-labelledby="recipient-title"
         >
-          <span className="invitation-recipient__ornament" aria-hidden="true" />
-          <p className="invitation-recipient__label">Especialmente para</p>
+          <span className="invitation-recipient__index" aria-hidden="true">01</span>
+          <p className="invitation-recipient__label">Esta invitación es especialmente para</p>
           <h2 id="recipient-title" className="invitation-recipient__name">{invitation.recipientName}</h2>
+          <p className="invitation-recipient__message">
+            Nos encantará compartir contigo la celebración de nuestro amor.
+          </p>
           <span className="invitation-recipient__ornament" aria-hidden="true" />
         </motion.section>
 
@@ -142,7 +148,8 @@ export function PublicInvitationPage() {
         <PhotoGallery photos={event.photos} />
 
         <section className="invitation-actions" aria-labelledby="invitation-actions-title">
-          <p className="invitation-section__eyebrow">Guarda y comparte</p>
+          <span className="invitation-actions__number" aria-hidden="true">04</span>
+          <p className="invitation-section__eyebrow">Save the date</p>
           <h2 id="invitation-actions-title" className="invitation-section__title">Lleva la fecha contigo</h2>
           <div className="invitation-actions__group">
             <AddToCalendarButton event={event} />
@@ -151,13 +158,13 @@ export function PublicInvitationPage() {
         </section>
 
         <section className="invitation-rsvp-card" aria-labelledby="rsvp-card-title">
-          <span className="invitation-rsvp-card__icon" aria-hidden="true">
-            <HeartHandshake size={28} />
-          </span>
-          <p className="invitation-section__eyebrow">Queremos contar contigo</p>
-          <h2 id="rsvp-card-title" className="invitation-section__title">
-            {hasResponded ? "Tu respuesta está registrada" : "¿Nos acompañas?"}
+          <p className="invitation-rsvp-card__please">Please</p>
+          <h2 id="rsvp-card-title" className="invitation-rsvp-card__letters" aria-label="RSVP">
+            <span>R</span><span>S</span><span>V</span><span>P</span>
           </h2>
+          <p className="invitation-rsvp-card__status-title">
+            {hasResponded ? "Tu respuesta está registrada" : "Queremos contar contigo"}
+          </p>
           <p className="invitation-rsvp-card__copy">
             {hasResponded
               ? "Si tus planes cambian, puedes actualizar tu respuesta aquí."
@@ -168,6 +175,7 @@ export function PublicInvitationPage() {
             className="invitation-rsvp-card__button"
             onClick={() => setIsRsvpOpen(true)}
           >
+            <HeartHandshake size={19} aria-hidden="true" />
             {hasResponded ? "Cambiar respuesta" : "Confirmar asistencia"}
           </button>
         </section>

@@ -40,21 +40,25 @@ export function PhotoGallery({ photos = [] }) {
 
   return (
     <section className="invitation-gallery" aria-labelledby="gallery-title">
-      <p className="invitation-section__eyebrow">Nuestra historia</p>
-      <h2 id="gallery-title" className="invitation-section__title">Momentos que atesoramos</h2>
-      <p className="invitation-gallery__hint">
-        {shouldUseFallback ? "Desliza para recorrer las fotografías." : "Desliza o toca una fotografía para explorar."}
-      </p>
+      <div className="invitation-gallery__heading">
+        <p className="invitation-section__eyebrow">Our story</p>
+        <h2 id="gallery-title" className="invitation-section__title">Momentos que atesoramos</h2>
+        <p className="invitation-gallery__hint">
+          {shouldUseFallback ? "Desliza para recorrer las fotografías." : "Desliza o toca una fotografía para explorar."}
+        </p>
+      </div>
 
-      {shouldUseFallback ? (
-        <PhotoCarouselFallback photos={sortedPhotos} />
-      ) : (
-        <ThreeGalleryBoundary key={sortedPhotos.map((photo) => photo.id).join("|")} photos={sortedPhotos}>
-          <Suspense fallback={<div className="invitation-gallery__loading" role="status">Preparando la galería…</div>}>
-            <LazyPhotoCarousel3D photos={sortedPhotos.slice(0, 8)} />
-          </Suspense>
-        </ThreeGalleryBoundary>
-      )}
+      <div className="invitation-gallery__frame">
+        {shouldUseFallback ? (
+          <PhotoCarouselFallback photos={sortedPhotos} />
+        ) : (
+          <ThreeGalleryBoundary key={sortedPhotos.map((photo) => photo.id).join("|")} photos={sortedPhotos}>
+            <Suspense fallback={<div className="invitation-gallery__loading" role="status">Preparando la galería…</div>}>
+              <LazyPhotoCarousel3D photos={sortedPhotos.slice(0, 8)} />
+            </Suspense>
+          </ThreeGalleryBoundary>
+        )}
+      </div>
     </section>
   );
 }

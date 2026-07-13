@@ -3,6 +3,10 @@ import { z } from "zod";
 const dateTimeSchema = z.string().datetime({ offset: true });
 const uuidSchema = z.string().uuid();
 const httpsUrlSchema = z.string().url().regex(/^https:\/\//, "La URL debe usar HTTPS.");
+const mediaUrlSchema = z.string().trim().refine(
+  (value) => value.startsWith("/") || /^https:\/\//.test(value),
+  "Usa una URL HTTPS o una ruta local que comience con /.",
+);
 
 export const rsvpStatusSchema = z.enum(["PENDING", "CONFIRMED", "DECLINED"]);
 export const roleSchema = z.enum(["ADMIN"]);
@@ -92,7 +96,7 @@ export const addressSchema = z
 export const photoSchema = z
   .object({
     id: z.string().min(1).max(80),
-    url: httpsUrlSchema,
+    url: mediaUrlSchema,
     altText: z.string().min(1).max(180),
     sortOrder: z.number().int().min(0),
   })
@@ -100,7 +104,7 @@ export const photoSchema = z
 
 export const audioSchema = z
   .object({
-    url: httpsUrlSchema,
+    url: mediaUrlSchema,
     title: z.string().max(120).optional(),
     artist: z.string().max(120).optional(),
     autoplay: z.boolean(),
@@ -250,4 +254,4 @@ export const apiSchemas = Object.freeze({
   rsvpResponse: rsvpResponseSchema,
 });
 
-export { dateTimeSchema, httpsUrlSchema, uuidSchema };
+export { dateTimeSchema, httpsUrlSchema, mediaUrlSchema, uuidSchema };

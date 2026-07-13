@@ -1,23 +1,25 @@
 "use client";
 
 import { MapPin, Navigation } from "lucide-react";
+import { BotanicalSprig, WatercolorWash } from "./AquarelleDecor";
 
 export function LocationCard({ address }) {
   if (!address) return null;
 
   return (
-    <section className="invitation-location" aria-labelledby="location-title">
-      <div className="invitation-location__heading-block">
-        <p className="invitation-section__eyebrow">The location</p>
-        <h2 id="location-title" className="invitation-section__title">Aquí nos encontraremos</h2>
-      </div>
-
+    <section className="invitation-location aquarelle-section" aria-labelledby="location-title">
+      <WatercolorWash className="aquarelle-section__wash aquarelle-section__wash--location" tone="gold" />
+      <BotanicalSprig className="aquarelle-section__sprig aquarelle-section__sprig--location" mirrored />
+      <header className="invitation-location__heading-block">
+        <p className="invitation-section__eyebrow">En la ceremonia de</p>
+        <h2 id="location-title" className="invitation-section__title">Celebración</h2>
+      </header>
       <div className="invitation-location__card">
         <div className="invitation-location__details">
           <span className="invitation-location__pin" aria-hidden="true">
-            <MapPin size={22} />
+            <MapPin size={25} />
           </span>
-          <p className="invitation-location__microcopy">Ceremonia y celebración</p>
+          <p className="invitation-location__microcopy">Nos encontraremos en</p>
           <h3 className="invitation-location__venue">{address.venueName}</h3>
           <p className="invitation-location__address">{address.formattedAddress}</p>
           <a
@@ -27,7 +29,7 @@ export function LocationCard({ address }) {
             rel="noreferrer noopener"
           >
             <Navigation size={18} aria-hidden="true" />
-            Ver ubicación
+            Pulsa para ver en Maps
           </a>
         </div>
 

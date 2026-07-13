@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Italianno&family=Montserrat:wght@300;400;500;600&display=swap");
 
 :root {
   --ivory: #fbf6ed;
@@ -237,7 +238,17 @@ img {
 }
 
 .invitation-hero {
-
+  position: relative;
+  display: grid;
+  min-height: 43rem;
+  place-items: center;
+  overflow: hidden;
+  padding: 4.5rem 1.25rem 3.4rem;
+  perspective: 1100px;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(234, 217, 183, 0.75) 0 3px, transparent 4px),
+    radial-gradient(circle at 82% 11%, rgba(201, 169, 110, 0.46) 0 2px, transparent 3px),
+    linear-gradient(155deg, #f7e8e5 0%, #f2e1df 46%, #e5e9df 100%);
 }
 
 .invitation-hero::before,
@@ -1692,7 +1703,7 @@ img {
   margin: 1.35rem auto 0;
   color: var(--wedding-muted);
   font-family: var(--wedding-serif);
-  font-size: 0.96rem;
+  font-size: 5rem;
   font-style: italic;
   line-height: 1.6;
 }
@@ -2796,5 +2807,2888 @@ img {
   .invitation-hero__portrait-shine,
   .invitation-hero__scroll-cue span {
     animation: none !important;
+  }
+}
+
+/* ========================================================================== */
+/* Aquarelle replica visual layer                                             */
+/* Gold + silver interpretation of the reference invitation.                  */
+/* Business logic, services and state remain unchanged.                       */
+/* ========================================================================== */
+
+.public-invitation--aquarelle {
+  --aq-ink: #34333a;
+  --aq-charcoal: #25262c;
+  --aq-paper: #fffefa;
+  --aq-paper-soft: #f8f6f2;
+  --aq-gold: #cfa84f;
+  --aq-gold-dark: #9d7730;
+  --aq-gold-light: #f1dfaa;
+  --aq-silver: #c7ccd5;
+  --aq-silver-dark: #8f96a3;
+  --aq-silver-light: #f1f3f7;
+  --aq-muted: #75747b;
+  --aq-line: rgba(52, 51, 58, 0.16);
+  --aq-script: "Italianno", "Snell Roundhand", "Segoe Script", cursive;
+  --aq-serif: "Cormorant Garamond", "Bodoni 72", Didot, "Times New Roman", serif;
+  --aq-sans: "Montserrat", "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+  background:
+    radial-gradient(circle at 8% 4%, rgba(207, 168, 79, 0.18), transparent 26rem),
+    radial-gradient(circle at 94% 12%, rgba(199, 204, 213, 0.72), transparent 24rem),
+    linear-gradient(180deg, #e7e8ec 0%, #d7d9df 100%);
+  color: var(--aq-ink);
+  font-family: var(--aq-sans);
+}
+
+.public-invitation--aquarelle .public-invitation__paper {
+  width: min(100%, 31rem);
+  background:
+    linear-gradient(rgba(255, 254, 250, 0.965), rgba(255, 254, 250, 0.965)),
+    repeating-linear-gradient(36deg, rgba(66, 62, 57, 0.025) 0 1px, transparent 1px 6px);
+  box-shadow: 0 0 82px rgba(38, 38, 44, 0.22);
+}
+
+.public-invitation--aquarelle .invitation-section__eyebrow {
+  color: var(--aq-gold-dark);
+  font-family: var(--aq-sans);
+  font-size: 0.61rem;
+  font-weight: 700;
+  letter-spacing: 0.34em;
+}
+
+.public-invitation--aquarelle .invitation-section__title {
+  color: var(--aq-charcoal);
+  font-family: var(--aq-script);
+  font-size: clamp(3rem, 14vw, 4.8rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 0.9;
+}
+
+/* Watercolor graphics */
+.aquarelle-wash {
+  display: block;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.aquarelle-sprig {
+  color: var(--aq-gold-dark);
+  opacity: 0.72;
+  pointer-events: none;
+}
+
+.aquarelle-sprig--mirrored {
+  transform: scaleX(-1);
+}
+
+.aquarelle-sprig__leaves {
+  opacity: 0.68;
+}
+
+.aquarelle-sprig__flowers {
+  opacity: 0.84;
+}
+
+.aquarelle-torn-divider {
+  display: block;
+  width: 100%;
+  height: 3rem;
+  color: var(--aq-paper);
+  pointer-events: none;
+}
+
+.aquarelle-torn-divider--inverted {
+  transform: rotate(180deg);
+}
+
+.aquarelle-rings {
+  color: var(--aq-gold-dark);
+}
+
+/* Opening cover */
+.aquarelle-opening {
+  position: fixed;
+  z-index: 120;
+  inset: 0;
+  display: grid;
+  min-height: 100svh;
+  align-content: center;
+  justify-items: center;
+  overflow: hidden;
+  padding: max(1.2rem, env(safe-area-inset-top)) 1.15rem max(1.5rem, env(safe-area-inset-bottom));
+  background:
+    linear-gradient(rgba(255, 254, 250, 0.94), rgba(255, 254, 250, 0.96)),
+    repeating-linear-gradient(48deg, rgba(64, 60, 55, 0.035) 0 1px, transparent 1px 7px);
+  color: var(--aq-charcoal);
+  isolation: isolate;
+}
+
+.aquarelle-opening::before {
+  position: absolute;
+  inset: 1rem;
+  z-index: -1;
+  border: 1px solid rgba(157, 119, 48, 0.4);
+  content: "";
+  clip-path: polygon(0 2%, 8% 0, 17% 2%, 27% 0.5%, 38% 1.5%, 49% 0, 61% 2%, 73% 0.5%, 84% 1.7%, 100% 0, 99% 15%, 100% 30%, 98.8% 43%, 100% 58%, 98.7% 73%, 100% 88%, 99% 100%, 83% 98.8%, 69% 100%, 55% 98.5%, 41% 100%, 27% 98.6%, 13% 100%, 0 98.5%, 1.2% 83%, 0 68%, 1.4% 52%, 0 37%, 1.2% 20%);
+  opacity: 0.7;
+}
+
+.aquarelle-opening__wash {
+  position: absolute;
+  z-index: -2;
+  width: 32rem;
+  opacity: 0.45;
+}
+
+.aquarelle-opening__wash--gold {
+  top: -6rem;
+  left: -12rem;
+  transform: rotate(-24deg);
+}
+
+.aquarelle-opening__wash--silver {
+  right: -13rem;
+  bottom: -5rem;
+  transform: rotate(154deg);
+}
+
+.aquarelle-opening__sprig {
+  position: absolute;
+  width: 17rem;
+  color: var(--aq-gold-dark);
+}
+
+.aquarelle-opening__sprig--top {
+  top: -2rem;
+  right: -7rem;
+  transform: rotate(150deg);
+}
+
+.aquarelle-opening__sprig--bottom {
+  bottom: -2rem;
+  left: -6rem;
+  transform: scaleX(-1) rotate(152deg);
+  color: var(--aq-silver-dark);
+}
+
+.aquarelle-opening__headline {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 1.1rem;
+  text-align: center;
+}
+
+.aquarelle-opening__headline p {
+  margin: 0;
+  font-family: var(--aq-script);
+  font-size: clamp(2.6rem, 12vw, 4rem);
+  line-height: 0.9;
+}
+
+.aquarelle-opening__headline span {
+  display: block;
+  max-width: 28ch;
+  margin: 0.8rem auto 0;
+  color: var(--aq-muted);
+  font-family: var(--aq-serif);
+  font-size: 0.82rem;
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.aquarelle-envelope {
+  position: relative;
+  display: block;
+  width: min(88vw, 24rem);
+  height: 18rem;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  perspective: 1200px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.aquarelle-envelope__shadow {
+  position: absolute;
+  right: 8%;
+  bottom: 0.55rem;
+  left: 8%;
+  height: 2rem;
+  border-radius: 50%;
+  background: rgba(46, 44, 49, 0.18);
+  filter: blur(18px);
+}
+
+.aquarelle-envelope__back,
+.aquarelle-envelope__front,
+.aquarelle-envelope__flap,
+.aquarelle-envelope__letter {
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: auto;
+}
+
+.aquarelle-envelope__back {
+  bottom: 1.25rem;
+  width: 100%;
+  height: 13rem;
+  border: 1px solid rgba(90, 88, 91, 0.18);
+  border-radius: 0.55rem;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.78), rgba(226, 228, 233, 0.9)),
+    #eeece8;
+  box-shadow: 0 18px 40px rgba(50, 48, 53, 0.17);
+}
+
+.aquarelle-envelope__letter {
+  z-index: 2;
+  bottom: 4.2rem;
+  display: grid;
+  width: 86%;
+  height: 13.5rem;
+  place-content: center;
+  justify-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(157, 119, 48, 0.38);
+  border-radius: 0.35rem;
+  background:
+    linear-gradient(rgba(255, 254, 250, 0.96), rgba(255, 254, 250, 0.96)),
+    repeating-linear-gradient(36deg, rgba(57, 54, 51, 0.035) 0 1px, transparent 1px 6px);
+  box-shadow: 0 12px 25px rgba(49, 47, 52, 0.12);
+  transition: transform 900ms cubic-bezier(0.2, 0.9, 0.2, 1), opacity 550ms ease;
+}
+
+.aquarelle-envelope__letter-border {
+  position: absolute;
+  inset: 0.65rem;
+  border: 1px solid rgba(157, 119, 48, 0.28);
+  clip-path: polygon(0 3%, 8% 0, 17% 2%, 28% 0.6%, 42% 2%, 55% 0, 68% 1.8%, 83% 0.5%, 100% 2%, 98.5% 20%, 100% 38%, 98.6% 55%, 100% 73%, 98.7% 100%, 82% 98%, 66% 100%, 50% 98.4%, 33% 100%, 17% 98%, 0 100%, 1.4% 78%, 0 58%, 1.4% 38%, 0 18%);
+}
+
+.aquarelle-envelope__letter-monogram {
+  color: var(--aq-gold-dark);
+  font-family: var(--aq-serif);
+  font-size: 2.35rem;
+  letter-spacing: 0.08em;
+}
+
+.aquarelle-envelope__letter-name {
+  max-width: 22ch;
+  margin-top: 0.75rem;
+  color: var(--aq-muted);
+  font-family: var(--aq-script);
+  font-size: 1.55rem;
+  line-height: 1;
+}
+
+.aquarelle-envelope__front {
+  z-index: 4;
+  bottom: 1.25rem;
+  width: 100%;
+  height: 13rem;
+  overflow: hidden;
+  border-radius: 0.55rem;
+  background:
+    linear-gradient(31deg, #eff0f3 0 49.6%, transparent 50%),
+    linear-gradient(-31deg, #e2e4e9 0 49.6%, transparent 50%);
+  box-shadow: inset 0 -1px rgba(120, 118, 121, 0.13);
+}
+
+.aquarelle-envelope__front::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 65%;
+  clip-path: polygon(0 0, 50% 68%, 100% 0, 100% 100%, 0 100%);
+  background: linear-gradient(180deg, #faf9f6, #e8e9ed);
+  content: "";
+}
+
+.aquarelle-envelope__flap {
+  z-index: 5;
+  top: 3.7rem;
+  width: 100%;
+  height: 8.3rem;
+  transform: rotateX(0deg);
+  transform-origin: top center;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  background: linear-gradient(180deg, #fbfaf7, #dfe2e8);
+  filter: drop-shadow(0 5px 4px rgba(48, 46, 51, 0.08));
+  transition: transform 620ms cubic-bezier(0.2, 0.8, 0.2, 1), z-index 0s linear 310ms;
+}
+
+.aquarelle-envelope__seal {
+  position: absolute;
+  z-index: 7;
+  top: 9.8rem;
+  left: 50%;
+  display: grid;
+  width: 4.2rem;
+  height: 4.2rem;
+  transform: translateX(-50%);
+  place-items: center;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 28%, #f5e6b5, transparent 30%),
+    linear-gradient(145deg, #e1c372, #9c742e);
+  box-shadow:
+    inset 0 0 0 0.24rem rgba(122, 88, 29, 0.2),
+    inset 0 0 0 0.42rem rgba(250, 229, 165, 0.26),
+    0 9px 18px rgba(75, 55, 23, 0.22);
+  color: #fff8e7;
+  font-family: var(--aq-serif);
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  transition: opacity 250ms ease, transform 400ms ease;
+}
+
+.aquarelle-opening--opening .aquarelle-envelope__flap {
+  z-index: 1;
+  transform: rotateX(178deg);
+}
+
+.aquarelle-opening--opening .aquarelle-envelope__seal {
+  transform: translateX(-50%) scale(0.72);
+  opacity: 0;
+}
+
+.aquarelle-opening--opening .aquarelle-envelope__letter {
+  transform: translateY(-8.4rem) scale(1.06);
+}
+
+.aquarelle-opening__prompt {
+  display: grid;
+  margin-top: 0.15rem;
+  justify-items: center;
+  gap: 0.12rem;
+  border: 0;
+  padding: 0.45rem 1rem;
+  cursor: pointer;
+  background: transparent;
+  color: var(--aq-charcoal);
+  text-align: center;
+}
+
+.aquarelle-opening__prompt svg {
+  animation: aquarelle-prompt 1.5s ease-in-out infinite;
+  color: var(--aq-gold-dark);
+}
+
+.aquarelle-opening__prompt strong {
+  font-family: var(--aq-script);
+  font-size: 1.65rem;
+  font-weight: 400;
+}
+
+.aquarelle-opening__prompt span {
+  color: var(--aq-muted);
+  font-size: 0.57rem;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+}
+
+@keyframes aquarelle-prompt {
+  0%, 100% { transform: translateY(2px); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Main photo and torn paper hero */
+.aquarelle-hero {
+  position: relative;
+  overflow: hidden;
+  background: #202127;
+}
+
+.aquarelle-hero__photo {
+  position: relative;
+  min-height: 72svh;
+  margin: 0;
+  overflow: hidden;
+  background: linear-gradient(160deg, #3f4148, #202126);
+}
+
+.aquarelle-hero__photo-image,
+.aquarelle-hero__photo-placeholder {
+  display: block;
+  width: 100%;
+  height: 72svh;
+  min-height: 36rem;
+}
+
+.aquarelle-hero__photo-image {
+  object-fit: cover;
+  object-position: center 38%;
+}
+
+.aquarelle-hero__photo-placeholder {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: var(--aq-serif);
+}
+
+.aquarelle-hero__photo-veil {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(15, 16, 20, 0.08) 38%, rgba(19, 20, 25, 0.5) 100%),
+    linear-gradient(90deg, rgba(18, 19, 23, 0.17), transparent 25%, transparent 76%, rgba(18, 19, 23, 0.12));
+}
+
+.aquarelle-hero__photo-wash,
+.aquarelle-hero__sprig {
+  position: absolute;
+  pointer-events: none;
+}
+
+.aquarelle-hero__photo-wash {
+  width: 23rem;
+  opacity: 0.42;
+  mix-blend-mode: screen;
+}
+
+.aquarelle-hero__photo-wash--gold {
+  top: -5.2rem;
+  left: -10rem;
+  transform: rotate(-24deg);
+}
+
+.aquarelle-hero__photo-wash--silver {
+  right: -10rem;
+  bottom: -4.8rem;
+  transform: rotate(154deg);
+}
+
+.aquarelle-hero__sprig {
+  width: 15.5rem;
+  color: #e8d49e;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.18));
+}
+
+.aquarelle-hero__sprig--top {
+  top: -1.8rem;
+  right: -5.6rem;
+  transform: rotate(151deg);
+}
+
+.aquarelle-hero__sprig--bottom {
+  bottom: 0.2rem;
+  left: -5.2rem;
+  transform: scaleX(-1) rotate(155deg);
+  color: #e4e7ec;
+}
+
+.aquarelle-hero__paper {
+  position: relative;
+  z-index: 4;
+  display: grid;
+  min-height: 25rem;
+  margin-top: -5rem;
+  place-content: center;
+  justify-items: center;
+  padding: 5.8rem 1.4rem 4rem;
+  background:
+    linear-gradient(rgba(255, 254, 250, 0.98), rgba(255, 254, 250, 0.98)),
+    repeating-linear-gradient(40deg, rgba(64, 59, 54, 0.025) 0 1px, transparent 1px 6px);
+  text-align: center;
+}
+
+.aquarelle-hero__torn {
+  position: absolute;
+  top: -2.7rem;
+  left: 0;
+  height: 4.2rem;
+}
+
+.aquarelle-hero__rings {
+  width: 5.4rem;
+  padding-top: 30px;
+
+}
+
+.aquarelle-hero__pretitle {
+  margin: 0;
+  color: var(--aq-muted);
+  font-family: var(--aq-serif);
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.aquarelle-hero__names {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.06em;
+  margin: 0.45rem 0 0;
+  color: var(--aq-charcoal);
+  font-family: var(--aq-script);
+  font-size: clamp(3.7rem, 18vw, 5.8rem);
+  font-weight: 400;
+  letter-spacing: -0.075em;
+  line-height: 0.76;
+}
+
+.aquarelle-hero__names .invitation-hero__ampersand {
+  color: var(--aq-gold-dark);
+  font-family: var(--aq-serif);
+  font-size: 0.57em;
+}
+
+.aquarelle-hero__announcement {
+  margin: 1.4rem 0 0;
+  color: var(--aq-gold-dark);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.31em;
+  text-transform: uppercase;
+}
+
+.aquarelle-hero__date {
+  display: grid;
+  width: min(100%, 19rem);
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  color: var(--aq-charcoal);
+  font-family: var(--aq-serif);
+  font-size: 0.85rem;
+  letter-spacing: 0.13em;
+}
+
+.aquarelle-hero__date span {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--aq-gold), var(--aq-silver-dark));
+}
+
+.aquarelle-hero__scroll-line {
+  width: 1px;
+  height: 3.2rem;
+  margin-top: 2rem;
+  background: linear-gradient(var(--aq-gold), transparent);
+}
+
+/* Shared watercolor section structure */
+.aquarelle-section {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.aquarelle-section__wash,
+.aquarelle-section__sprig {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.aquarelle-section__heading {
+  position: relative;
+  z-index: 2;
+}
+
+/* Personal quote */
+.public-invitation--aquarelle .aquarelle-quote {
+  position: relative;
+  display: grid;
+  min-height: 29rem;
+  align-content: center;
+  justify-items: center;
+  overflow: hidden;
+  padding: 5rem 1.5rem;
+  background: var(--aq-paper);
+  text-align: center;
+}
+
+.aquarelle-quote__wash,
+.aquarelle-quote__sprig {
+  position: absolute;
+  pointer-events: none;
+}
+
+.aquarelle-quote__wash {
+  width: 29rem;
+  opacity: 0.28;
+}
+
+.aquarelle-quote__wash--gold {
+  top: 2rem;
+  left: -10rem;
+  transform: rotate(-16deg);
+}
+
+.aquarelle-quote__wash--silver {
+  right: -11rem;
+  bottom: 1rem;
+  transform: rotate(161deg);
+}
+
+.aquarelle-quote__sprig {
+  width: 12rem;
+  opacity: 0.45;
+}
+
+.aquarelle-quote__sprig--left {
+  top: 0.8rem;
+  left: -5rem;
+  transform: rotate(-10deg);
+}
+
+.aquarelle-quote__sprig--right {
+  right: -5rem;
+  bottom: 0.5rem;
+  transform: scaleX(-1) rotate(-10deg);
+  color: var(--aq-silver-dark);
+}
+
+.public-invitation--aquarelle .invitation-recipient__label {
+  position: relative;
+  z-index: 2;
+  max-width: 30ch;
+  margin: 0 0 0.9rem;
+  color: var(--aq-gold-dark);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.public-invitation--aquarelle .invitation-recipient__name {
+  position: relative;
+  z-index: 2;
+  max-width: 11ch;
+  margin: 0;
+  color: var(--aq-charcoal);
+  font-family: var(--aq-script);
+  font-size: clamp(3.2rem, 15vw, 5rem);
+  font-weight: 400;
+  line-height: 0.9;
+}
+
+.public-invitation--aquarelle .invitation-recipient__ornament {
+  position: relative;
+  z-index: 2;
+  width: 4.8rem;
+  height: 1px;
+  margin: 1.45rem 0;
+  background: linear-gradient(90deg, transparent, var(--aq-gold-dark), transparent);
+}
+
+.public-invitation--aquarelle .invitation-recipient__message {
+  position: relative;
+  z-index: 2;
+  max-width: 31ch;
+  margin: 0;
+  color: var(--aq-muted);
+  font-family: var(--aq-serif);
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.75;
+}
+
+/* Ceremony */
+.public-invitation--aquarelle .invitation-event-details {
+  min-height: 35rem;
+  padding: 5rem 1.2rem;
+  background:
+    linear-gradient(rgba(250, 249, 247, 0.95), rgba(250, 249, 247, 0.95)),
+    repeating-linear-gradient(44deg, rgba(73, 68, 63, 0.025) 0 1px, transparent 1px 6px);
+}
+
+.aquarelle-section__wash--event {
+  top: 4rem;
+  left: 50%;
+  width: 31rem;
+  transform: translateX(-50%) rotate(-4deg);
+  opacity: 0.25;
+}
+
+.aquarelle-section__sprig--event {
+  right: -6rem;
+  bottom: -1.5rem;
+  width: 15rem;
+  transform: rotate(143deg);
+}
+
+.public-invitation--aquarelle .invitation-event-details__card {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  margin: 3rem auto 0;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  padding: 1.8rem 1.4rem;
+  background: rgba(255, 254, 250, 0.76);
+  box-shadow: none;
+}
+
+.public-invitation--aquarelle .invitation-event-details__card::before {
+  position: absolute;
+  inset: -0.85rem;
+  border: 1px solid rgba(157, 119, 48, 0.32);
+  content: "";
+  clip-path: polygon(0 3%, 9% 0, 18% 2%, 29% 0.4%, 43% 1.8%, 57% 0, 71% 2%, 84% 0.4%, 100% 2%, 98.8% 20%, 100% 42%, 98.7% 62%, 100% 82%, 98.6% 100%, 84% 98.5%, 69% 100%, 53% 98.4%, 38% 100%, 21% 98.6%, 0 100%, 1.4% 80%, 0 60%, 1.3% 40%, 0 20%);
+}
+
+.public-invitation--aquarelle .invitation-event-details__row {
+  grid-template-columns: 2.8rem minmax(0, 1fr);
+  gap: 0.85rem;
+}
+
+.public-invitation--aquarelle .invitation-event-details__icon {
+  display: grid;
+  width: 2.6rem;
+  height: 2.6rem;
+  place-items: center;
+  border: 1px solid rgba(157, 119, 48, 0.38);
+  border-radius: 50%;
+  background: rgba(255, 254, 250, 0.74);
+  color: var(--aq-gold-dark);
+}
+
+.public-invitation--aquarelle .invitation-event-details__label {
+  color: var(--aq-gold-dark);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.23em;
+  text-transform: uppercase;
+}
+
+.public-invitation--aquarelle .invitation-event-details__value {
+  margin: 0.35rem 0 0;
+  color: var(--aq-charcoal);
+  font-family: var(--aq-serif);
+  font-size: 1.06rem;
+  line-height: 1.55;
+}
+
+.public-invitation--aquarelle .invitation-event-details__divider {
+  width: 100%;
+  height: 1px;
+  margin: 1.2rem 0;
+  background: linear-gradient(90deg, transparent, var(--aq-silver-dark), transparent);
+}
+
+/* Celebration */
+.public-invitation--aquarelle .invitation-location {
+  padding: 5rem 1rem 4.5rem;
+  color: var(--aq-charcoal);
+  background: var(--aq-paper);
+}
+
+.aquarelle-section__wash--location {
+  top: 1.7rem;
+  right: -8rem;
+  width: 31rem;
+  transform: rotate(152deg);
+  opacity: 0.24;
+}
+
+.aquarelle-section__sprig--location {
+  top: -1rem;
+  left: -6.4rem;
+  width: 15rem;
+  transform: scaleX(-1) rotate(153deg);
+  color: var(--aq-silver-dark);
+}
+
+.public-invitation--aquarelle .invitation-location__heading-block {
+  position: relative;
+  z-index: 2;
+  padding: 0 1rem 2.5rem;
+}
+
+.public-invitation--aquarelle .invitation-location__card {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 1rem;
+  overflow: visible;
+  background: transparent;
+}
+
+.public-invitation--aquarelle .invitation-location__details {
+  display: grid;
+  justify-items: center;
+  padding: 1.8rem 1.4rem 2rem;
+  background: rgba(248, 247, 244, 0.86);
+  text-align: center;
+}
+
+.public-invitation--aquarelle .invitation-location__details::before {
+  position: absolute;
+  inset: 0.4rem 0.1rem auto;
+  height: 13rem;
+  border: 1px solid rgba(143, 150, 163, 0.32);
+  content: "";
+  clip-path: polygon(0 4%, 11% 0, 23% 2%, 38% 0, 52% 2%, 67% 0.6%, 82% 2%, 100% 0, 98.8% 24%, 100% 50%, 98.8% 76%, 100% 100%, 79% 98%, 60% 100%, 39% 98%, 20% 100%, 0 98%, 1.3% 72%, 0 47%, 1.4% 22%);
+  pointer-events: none;
+}
+
+.public-invitation--aquarelle .invitation-location__pin {
+  display: grid;
+  width: 3.3rem;
+  height: 3.3rem;
+  margin: 0 0 1rem;
+  place-items: center;
+  border: 1px solid rgba(157, 119, 48, 0.48);
+  border-radius: 50%;
+  background: rgba(255, 254, 250, 0.74);
+  color: var(--aq-gold-dark);
+}
+
+.public-invitation--aquarelle .invitation-location__microcopy {
+  color: var(--aq-muted);
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+
+.public-invitation--aquarelle .invitation-location__venue {
+  max-width: 16ch;
+  margin: 0.4rem 0 0;
+  color: var(--aq-charcoal);
+  font-family: var(--aq-serif);
+  font-size: clamp(2rem, 10vw, 3.1rem);
+  font-weight: 400;
+  line-height: 0.98;
+}
+
+.public-invitation--aquarelle .invitation-location__address {
+  max-width: 30ch;
+  margin: 0.9rem 0 0;
+  color: var(--aq-muted);
+  font-size: 0.8rem;
+  line-height: 1.65;
+}
+
+.public-invitation--aquarelle .invitation-location__directions {
+  min-height: 2.9rem;
+  margin-top: 1.3rem;
+  border: 1px solid var(--aq-gold-dark);
+  border-radius: 999px;
+  padding: 0.75rem 1.2rem;
+  background: linear-gradient(135deg, var(--aq-gold-light), var(--aq-gold));
+  color: #433315;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.public-invitation--aquarelle .invitation-location__map-frame,
+.public-invitation--aquarelle .invitation-location__map-fallback {
+  min-height: 18rem;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(143, 150, 163, 0.42);
+  border-radius: 0.35rem;
+  background: #e9ebef;
+  box-shadow: 0 18px 36px rgba(45, 44, 49, 0.12);
+}
+
+.public-invitation--aquarelle .invitation-location__map {
+  min-height: 18rem;
+  filter: grayscale(0.95) sepia(0.08) contrast(0.94);
+}
+
+/* Countdown */
+.public-invitation--aquarelle .invitation-countdown {
+  min-height: 27rem;
+  padding: 5rem 1rem;
+  color: var(--aq-charcoal);
+  background:
+    linear-gradient(rgba(255, 254, 250, 0.97), rgba(255, 254, 250, 0.97)),
+    repeating-linear-gradient(40deg, rgba(70, 66, 61, 0.026) 0 1px, transparent 1px 6px);
+}
+
+.invitation-countdown__wash {
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  width: 31rem;
+  transform: translate(-50%, -50%) rotate(-5deg);
+  opacity: 0.28;
+}
+
+.public-invitation--aquarelle .invitation-countdown__kicker {
+  color: var(--aq-gold-dark);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.34em;
+}
+
+.public-invitation--aquarelle .invitation-countdown__heading {
+  margin: 0.3rem 0 0;
+  font-family: var(--aq-script);
+  font-size: clamp(3.1rem, 15vw, 4.7rem);
+  font-weight: 400;
+  line-height: 0.9;
+}
+
+.public-invitation--aquarelle .invitation-countdown__grid {
+  margin-top: 2.8rem;
+  border-top: 1px solid rgba(157, 119, 48, 0.42);
+  border-bottom: 1px solid rgba(143, 150, 163, 0.42);
+}
+
+.public-invitation--aquarelle .invitation-countdown__unit {
+  padding: 1.35rem 0.05rem 1.2rem;
+}
+
+.public-invitation--aquarelle .invitation-countdown__value {
+  color: var(--aq-charcoal);
+  font-family: var(--aq-serif);
+  font-size: clamp(2rem, 10vw, 3.25rem);
+}
+
+.public-invitation--aquarelle .invitation-countdown__label {
+  color: var(--aq-muted);
+  font-size: 0.45rem;
+  letter-spacing: 0.14em;
+}
+
+.public-invitation--aquarelle .invitation-countdown__separator {
+  color: var(--aq-gold-dark);
+}
+
+/* Gallery */
+.public-invitation--aquarelle .invitation-gallery {
+  position: relative;
+  padding: 6rem 0 5rem;
+  color: var(--aq-charcoal);
+  background: #eceef2;
+}
+
+.invitation-gallery__torn {
+  position: absolute;
+  z-index: 4;
+  left: 0;
+  color: var(--aq-paper);
+}
+
+.invitation-gallery__torn--top {
+  top: -2.5rem;
+}
+
+.invitation-gallery__torn--bottom {
+  bottom: -2.5rem;
+}
+
+.aquarelle-section__wash--gallery {
+  top: 0;
+  left: -9rem;
+  width: 31rem;
+  transform: rotate(-17deg);
+  opacity: 0.35;
+}
+
+.aquarelle-section__sprig--gallery {
+  right: -6rem;
+  bottom: -1rem;
+  width: 15rem;
+  transform: rotate(145deg);
+  color: var(--aq-gold-dark);
+}
+
+.public-invitation--aquarelle .invitation-gallery__heading {
+  position: relative;
+  z-index: 2;
+  padding: 0 1.4rem;
+}
+
+.public-invitation--aquarelle .invitation-gallery__hint {
+  max-width: 31ch;
+  margin: 1rem auto 0;
+  color: var(--aq-muted);
+  font-family: var(--aq-serif);
+  font-size: 0.9rem;
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.public-invitation--aquarelle .invitation-gallery__frame {
+  position: relative;
+  z-index: 2;
+  margin-top: 2rem;
+}
+
+.public-invitation--aquarelle .photo-carousel-fallback__track {
+  gap: 0.85rem;
+  padding: 0 1.9rem 0.8rem;
+  scroll-padding-inline: 1.9rem;
+}
+
+.public-invitation--aquarelle .photo-carousel-fallback__item {
+  flex-basis: 82%;
+  border: 0;
+  border-radius: 0.4rem;
+  padding: 0.45rem;
+  background: #fffefa;
+  box-shadow: 0 16px 36px rgba(42, 41, 47, 0.16);
+  transform: rotate(-1.2deg);
+}
+
+.public-invitation--aquarelle .photo-carousel-fallback__item:nth-child(even) {
+  transform: rotate(1.2deg);
+}
+
+.public-invitation--aquarelle .photo-carousel-fallback__image,
+.public-invitation--aquarelle .photo-carousel-fallback__placeholder {
+  aspect-ratio: 0.76;
+  border-radius: 0.15rem;
+}
+
+.public-invitation--aquarelle .photo-carousel-fallback__arrow,
+.public-invitation--aquarelle .photo-carousel-3d__arrow {
+  border-color: rgba(157, 119, 48, 0.42);
+  background: rgba(255, 254, 250, 0.9);
+  color: var(--aq-gold-dark);
+}
+
+.public-invitation--aquarelle .photo-carousel-fallback__dot {
+  background: var(--aq-silver-dark);
+}
+
+.public-invitation--aquarelle .photo-carousel-fallback__dot--active {
+  background: var(--aq-gold-dark);
+}
+
+.public-invitation--aquarelle .photo-carousel-3d__canvas {
+  background:
+    radial-gradient(circle at center, rgba(207, 168, 79, 0.14), transparent 52%),
+    #e3e5ea;
+}
+
+/* Calendar/share actions */
+.public-invitation--aquarelle .aquarelle-actions {
+  position: relative;
+  min-height: 26rem;
+  padding: 5rem 1.4rem;
+  background: var(--aq-paper);
+}
+
+.aquarelle-actions__wash {
+  position: absolute;
+  z-index: 0;
+  right: -10rem;
+  bottom: -5rem;
+  width: 30rem;
+  transform: rotate(155deg);
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.public-invitation--aquarelle .aquarelle-actions > *:not(.aquarelle-actions__wash) {
+  position: relative;
+  z-index: 1;
+}
+
+.public-invitation--aquarelle .invitation-actions__group {
+  width: 100%;
+  margin-top: 2.2rem;
+  gap: 0.75rem;
+}
+
+.public-invitation--aquarelle .invitation-action {
+  min-height: 3.25rem;
+  border: 1px solid rgba(157, 119, 48, 0.48);
+  border-radius: 999px;
+  background: rgba(255, 254, 250, 0.85);
+  color: var(--aq-charcoal);
+  font-size: 0.74rem;
+  font-weight: 800;
+}
+
+.public-invitation--aquarelle .invitation-action--calendar {
+  background: linear-gradient(135deg, #e5c878, #bd943e);
+  color: #3d2f15;
+}
+
+/* RSVP envelope */
+.public-invitation--aquarelle .aquarelle-rsvp {
+  position: relative;
+  display: grid;
+  min-height: 43rem;
+  align-content: center;
+  justify-items: center;
+  overflow: hidden;
+  padding: 6rem 1.2rem 5rem;
+  background:
+    linear-gradient(rgba(240, 242, 246, 0.96), rgba(240, 242, 246, 0.96)),
+    repeating-linear-gradient(42deg, rgba(55, 57, 64, 0.028) 0 1px, transparent 1px 6px);
+}
+
+.aquarelle-rsvp__torn {
+  position: absolute;
+  top: -2.4rem;
+  left: 0;
+  color: var(--aq-paper);
+}
+
+.aquarelle-rsvp__wash {
+  position: absolute;
+  top: 1rem;
+  left: -9rem;
+  width: 30rem;
+  transform: rotate(-16deg);
+  opacity: 0.3;
+}
+
+.aquarelle-rsvp__sprig {
+  position: absolute;
+  right: -5.5rem;
+  bottom: -0.5rem;
+  width: 15rem;
+  transform: rotate(145deg);
+  color: var(--aq-gold-dark);
+}
+
+.aquarelle-rsvp__letter {
+  position: relative;
+  z-index: 4;
+  display: grid;
+  width: min(100%, 25rem);
+  min-height: 22rem;
+  align-content: center;
+  justify-items: center;
+  padding: 3.3rem 1.5rem 4.4rem;
+  background:
+    linear-gradient(rgba(255, 254, 250, 0.97), rgba(255, 254, 250, 0.97)),
+    repeating-linear-gradient(35deg, rgba(65, 60, 55, 0.032) 0 1px, transparent 1px 6px);
+  box-shadow: 0 20px 42px rgba(48, 47, 53, 0.17);
+  text-align: center;
+}
+
+.aquarelle-rsvp__letter::before {
+  position: absolute;
+  inset: 0.7rem;
+  border: 1px solid rgba(157, 119, 48, 0.3);
+  content: "";
+  clip-path: polygon(0 3%, 9% 0, 20% 2%, 32% 0.5%, 45% 2%, 58% 0, 72% 2%, 86% 0.5%, 100% 2%, 98.7% 22%, 100% 44%, 98.6% 66%, 100% 88%, 98.5% 100%, 82% 98.5%, 64% 100%, 48% 98.5%, 31% 100%, 15% 98.6%, 0 100%, 1.3% 78%, 0 57%, 1.4% 36%, 0 16%);
+}
+
+.public-invitation--aquarelle .aquarelle-rsvp .invitation-section__title {
+  max-width: 8ch;
+}
+
+.public-invitation--aquarelle .invitation-rsvp-card__copy {
+  max-width: 31ch;
+  margin: 1.2rem auto 1.6rem;
+  color: var(--aq-muted);
+  font-family: var(--aq-serif);
+  font-size: 0.92rem;
+  font-style: italic;
+  line-height: 1.65;
+}
+
+.public-invitation--aquarelle .invitation-rsvp-card__button {
+  min-height: 3.1rem;
+  border: 1px solid var(--aq-gold-dark);
+  border-radius: 999px;
+  background: linear-gradient(135deg, #e6c979, #bd943e);
+  color: #3c2e14;
+  font-size: 0.74rem;
+  font-weight: 800;
+}
+
+.aquarelle-rsvp__envelope {
+  position: relative;
+  z-index: 5;
+  width: min(92%, 26rem);
+  height: 10.5rem;
+  margin-top: -3.6rem;
+}
+
+.aquarelle-rsvp__envelope-back,
+.aquarelle-rsvp__envelope-front {
+  position: absolute;
+  inset: 0;
+  border-radius: 0.35rem;
+}
+
+.aquarelle-rsvp__envelope-back {
+  background: linear-gradient(150deg, #f7f7f5, #d8dbe2);
+  box-shadow: 0 15px 30px rgba(47, 46, 51, 0.14);
+}
+
+.aquarelle-rsvp__envelope-front {
+  clip-path: polygon(0 0, 50% 70%, 100% 0, 100% 100%, 0 100%);
+  background:
+    linear-gradient(31deg, #f2f2f0 0 49.6%, transparent 50%),
+    linear-gradient(-31deg, #dfe1e6 0 49.6%, transparent 50%),
+    linear-gradient(180deg, #f6f6f4, #d8dbe1);
+}
+
+.aquarelle-rsvp__seal {
+  position: absolute;
+  top: 4.1rem;
+  left: 50%;
+  display: grid;
+  width: 3.7rem;
+  height: 3.7rem;
+  transform: translateX(-50%);
+  place-items: center;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 28%, #f5e5b2, transparent 28%), linear-gradient(145deg, #e1c16e, #9d7430);
+  box-shadow: inset 0 0 0 0.3rem rgba(255, 240, 193, 0.22), 0 8px 16px rgba(83, 61, 25, 0.2);
+  color: #fff7df;
+}
+
+/* Footer and floating controls */
+.public-invitation--aquarelle .aquarelle-footer {
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 1.5rem 8rem;
+  background: linear-gradient(180deg, #2d2e35, #222329);
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.aquarelle-footer__wash {
+  position: absolute;
+  top: -6rem;
+  left: 50%;
+  width: 31rem;
+  transform: translateX(-50%);
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+.public-invitation--aquarelle .aquarelle-footer > *:not(.aquarelle-footer__wash) {
+  position: relative;
+  z-index: 1;
+}
+
+.public-invitation--aquarelle .aquarelle-footer span {
+  color: var(--aq-gold-light);
+}
+
+.public-invitation--aquarelle .aquarelle-footer p {
+  font-family: var(--aq-script);
+  font-size: 1.8rem;
+}
+
+.public-invitation--aquarelle .public-invitation__fixed-rsvp {
+  border: 1px solid rgba(239, 223, 170, 0.52);
+  background: rgba(35, 36, 42, 0.93);
+  box-shadow: 0 16px 40px rgba(33, 32, 37, 0.3);
+  color: #fff;
+}
+
+.public-invitation--aquarelle .audio-controller {
+  border-color: rgba(157, 119, 48, 0.35);
+  background: rgba(255, 254, 250, 0.94);
+  box-shadow: 0 12px 26px rgba(38, 37, 42, 0.16);
+}
+
+.public-invitation--aquarelle .audio-controller__play {
+  background: linear-gradient(145deg, #e1c16d, #a57b31);
+  color: #fff8e9;
+}
+
+.public-invitation--aquarelle .audio-autoplay-prompt {
+  background:
+    linear-gradient(rgba(39, 40, 46, 0.94), rgba(39, 40, 46, 0.94)),
+    radial-gradient(circle at 20% 10%, rgba(207, 168, 79, 0.25), transparent 16rem);
+}
+
+.public-invitation--aquarelle .audio-autoplay-prompt__icon {
+  border-color: var(--aq-gold);
+  color: var(--aq-gold-light);
+}
+
+/* RSVP dialog as a letter */
+.rsvp-dialog__overlay {
+  background: rgba(35, 35, 41, 0.78);
+  backdrop-filter: blur(7px);
+}
+
+.rsvp-dialog__panel {
+  position: relative;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0.4rem;
+  background:
+    linear-gradient(rgba(255, 254, 250, 0.98), rgba(255, 254, 250, 0.98)),
+    repeating-linear-gradient(38deg, rgba(61, 57, 53, 0.032) 0 1px, transparent 1px 6px);
+  box-shadow: 0 24px 70px rgba(28, 28, 33, 0.3);
+}
+
+.rsvp-dialog__panel::before {
+  position: absolute;
+  inset: 0.75rem;
+  border: 1px solid rgba(157, 119, 48, 0.3);
+  content: "";
+  pointer-events: none;
+  clip-path: polygon(0 3%, 9% 0, 19% 2%, 31% 0.5%, 44% 2%, 57% 0, 71% 2%, 85% 0.5%, 100% 2%, 98.7% 22%, 100% 44%, 98.6% 67%, 100% 89%, 98.5% 100%, 82% 98.5%, 65% 100%, 49% 98.5%, 32% 100%, 15% 98.5%, 0 100%, 1.4% 78%, 0 57%, 1.4% 36%, 0 15%);
+}
+
+.rsvp-dialog__eyebrow {
+  color: var(--aq-gold-dark);
+}
+
+.rsvp-dialog__title {
+  color: var(--aq-charcoal);
+  font-family: var(--aq-script);
+  font-size: clamp(2.7rem, 12vw, 4rem);
+  font-weight: 400;
+  line-height: 0.9;
+}
+
+.rsvp-dialog__description,
+.rsvp-dialog__current-status {
+  color: var(--aq-muted);
+  font-family: var(--aq-serif);
+}
+
+.rsvp-dialog__option {
+  border-color: rgba(143, 150, 163, 0.36);
+  border-radius: 0.35rem;
+  background: rgba(248, 248, 247, 0.8);
+}
+
+.rsvp-dialog__option--confirmed:hover,
+.rsvp-dialog__option--confirmed.rsvp-dialog__option--selected {
+  border-color: rgba(157, 119, 48, 0.6);
+  background: rgba(237, 214, 151, 0.24);
+}
+
+.rsvp-dialog__option--declined:hover,
+.rsvp-dialog__option--declined.rsvp-dialog__option--selected {
+  border-color: rgba(143, 150, 163, 0.62);
+  background: rgba(209, 213, 222, 0.28);
+}
+
+.rsvp-dialog__done {
+  background: linear-gradient(135deg, #e3c674, #b98e39);
+  color: #3e3017;
+}
+
+@media (min-width: 44rem) {
+  .aquarelle-opening {
+    width: min(100%, 31rem);
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 80px rgba(38, 38, 44, 0.26);
+  }
+
+  .public-invitation--aquarelle {
+    padding: 2rem 0 8rem;
+  }
+
+  .public-invitation--aquarelle .public-invitation__paper {
+    overflow: hidden;
+    border: 1px solid rgba(52, 51, 58, 0.15);
+    border-radius: 1.2rem;
+  }
+}
+
+@media (max-width: 24rem) {
+  .aquarelle-envelope {
+    transform: scale(0.92);
+  }
+
+  .aquarelle-opening__headline p {
+    font-size: 2.35rem;
+  }
+
+  .aquarelle-hero__names {
+    font-size: 3.35rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aquarelle-opening__prompt svg {
+    animation: none;
+  }
+
+  .aquarelle-envelope__letter,
+  .aquarelle-envelope__flap,
+  .aquarelle-envelope__seal {
+    transition-duration: 160ms;
+  }
+}
+
+/* ========================================================================== */
+/* Aquarelle interaction refinements                                          */
+/* Envelope gesture starts the soundtrack; gallery mirrors the reference.     */
+/* ========================================================================== */
+
+.public-invitation--aquarelle .audio-autoplay-prompt {
+  display: none !important;
+}
+
+/* Memories carousel: one immersive portrait at a time, like the reference. */
+.public-invitation--aquarelle .invitation-gallery {
+  padding-top: 6.4rem;
+  padding-bottom: 5.8rem;
+  background:
+    radial-gradient(ellipse at 12% 32%, rgba(207, 168, 79, 0.13), transparent 42%),
+    radial-gradient(ellipse at 88% 62%, rgba(143, 150, 163, 0.22), transparent 44%),
+    linear-gradient(180deg, #eef0f4 0%, #e8eaf0 52%, #f5f3ef 100%);
+}
+
+.public-invitation--aquarelle .invitation-gallery__heading {
+  max-width: 24rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.public-invitation--aquarelle .invitation-gallery__heading .invitation-section__eyebrow {
+  margin-bottom: 0.15rem;
+  color: var(--aq-gold-dark);
+}
+
+.public-invitation--aquarelle .invitation-gallery__heading .invitation-section__title {
+  max-width: 7ch;
+  font-size: clamp(3.4rem, 16vw, 5.15rem);
+  line-height: 0.78;
+}
+
+.public-invitation--aquarelle .invitation-gallery__frame {
+  margin-top: 2.8rem;
+}
+
+.aquarelle-memory-carousel {
+  position: relative;
+  width: 100%;
+  outline: none;
+  touch-action: pan-y;
+}
+
+.aquarelle-memory-carousel:focus-visible {
+  outline: 2px solid rgba(157, 119, 48, 0.55);
+  outline-offset: 0.3rem;
+}
+
+.aquarelle-memory-carousel__stage {
+  position: relative;
+  display: grid;
+  min-height: 35rem;
+  place-items: center;
+  overflow: hidden;
+  padding: 1.6rem 2.25rem 1.2rem;
+}
+
+.aquarelle-memory-carousel__viewport {
+  position: relative;
+  z-index: 3;
+  width: min(80vw, 23.6rem);
+  aspect-ratio: 0.75;
+  overflow: visible;
+}
+
+.aquarelle-memory-carousel__figure {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 0.28rem;
+  background: #d9dce2;
+  box-shadow:
+    0 1.7rem 3.7rem rgba(38, 40, 47, 0.23),
+    0 0.3rem 0.9rem rgba(38, 40, 47, 0.14);
+  cursor: grab;
+  user-select: none;
+}
+
+.aquarelle-memory-carousel__figure:active {
+  cursor: grabbing;
+}
+
+.aquarelle-memory-carousel__paper-edge {
+  position: absolute;
+  z-index: 3;
+  inset: 0.42rem;
+  border: 1px solid rgba(255, 255, 255, 0.46);
+  border-radius: 0.12rem;
+  pointer-events: none;
+}
+
+.aquarelle-memory-carousel__image,
+.aquarelle-memory-carousel__placeholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.aquarelle-memory-carousel__image {
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+.aquarelle-memory-carousel__placeholder {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 0.75rem;
+  padding: 2rem;
+  color: var(--aq-muted);
+  background: linear-gradient(145deg, #f8f7f4, #e7e9ee);
+  font-family: var(--aq-serif);
+  text-align: center;
+}
+
+.aquarelle-memory-carousel__photo-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 24%, transparent 76%, rgba(42, 42, 48, 0.11)),
+    radial-gradient(ellipse at center, transparent 66%, rgba(43, 43, 49, 0.12) 100%);
+  pointer-events: none;
+}
+
+.aquarelle-memory-carousel__wash,
+.aquarelle-memory-carousel__sketch {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.aquarelle-memory-carousel__wash {
+  width: 24rem;
+  height: 16rem;
+  border-radius: 47% 53% 58% 42% / 56% 43% 57% 44%;
+  filter: blur(0.1px);
+}
+
+.aquarelle-memory-carousel__wash--gold {
+  top: -0.7rem;
+  left: -10rem;
+  transform: rotate(-13deg);
+  background:
+    radial-gradient(ellipse at 35% 50%, rgba(207, 168, 79, 0.34), transparent 66%),
+    radial-gradient(ellipse at 68% 40%, rgba(241, 223, 170, 0.32), transparent 62%);
+  opacity: 0.8;
+}
+
+.aquarelle-memory-carousel__wash--silver {
+  right: -9rem;
+  bottom: 0.3rem;
+  transform: rotate(16deg);
+  background:
+    radial-gradient(ellipse at 40% 48%, rgba(143, 150, 163, 0.33), transparent 66%),
+    radial-gradient(ellipse at 70% 35%, rgba(218, 222, 230, 0.7), transparent 62%);
+  opacity: 0.72;
+}
+
+.aquarelle-memory-carousel__sketch {
+  width: 8.8rem;
+  height: 15rem;
+  opacity: 0.44;
+  background:
+    radial-gradient(ellipse at 32% 18%, rgba(157, 119, 48, 0.7) 0 8%, transparent 9%),
+    radial-gradient(ellipse at 62% 35%, rgba(143, 150, 163, 0.72) 0 9%, transparent 10%),
+    radial-gradient(ellipse at 38% 54%, rgba(207, 168, 79, 0.58) 0 8%, transparent 9%),
+    radial-gradient(ellipse at 67% 70%, rgba(143, 150, 163, 0.65) 0 8%, transparent 9%),
+    linear-gradient(83deg, transparent 49%, rgba(157, 119, 48, 0.55) 50% 51%, transparent 52%);
+}
+
+.aquarelle-memory-carousel__sketch--left {
+  left: -2.7rem;
+  bottom: 2rem;
+  transform: rotate(-25deg);
+}
+
+.aquarelle-memory-carousel__sketch--right {
+  top: 0;
+  right: -2.8rem;
+  transform: rotate(148deg);
+}
+
+.aquarelle-memory-carousel__arrow {
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+  display: grid;
+  width: 2.85rem;
+  height: 2.85rem;
+  transform: translateY(-50%);
+  place-items: center;
+  border: 1px solid rgba(157, 119, 48, 0.48);
+  border-radius: 50%;
+  padding: 0;
+  cursor: pointer;
+  color: var(--aq-gold-dark);
+  background: rgba(255, 254, 250, 0.88);
+  box-shadow: 0 0.7rem 1.7rem rgba(52, 51, 58, 0.13);
+  backdrop-filter: blur(8px);
+  transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.aquarelle-memory-carousel__arrow:hover,
+.aquarelle-memory-carousel__arrow:focus-visible {
+  transform: translateY(-50%) scale(1.06);
+  color: #fff;
+  background: var(--aq-gold-dark);
+}
+
+.aquarelle-memory-carousel__arrow--previous {
+  left: 0.6rem;
+}
+
+.aquarelle-memory-carousel__arrow--next {
+  right: 0.6rem;
+}
+
+.aquarelle-memory-carousel__footer {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  max-width: 22rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0.7rem auto 0;
+  padding: 0 1rem;
+}
+
+.aquarelle-memory-carousel__counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--aq-muted);
+  font-family: var(--aq-serif);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+}
+
+.aquarelle-memory-carousel__counter i {
+  display: block;
+  width: 2.7rem;
+  height: 1px;
+  background: linear-gradient(90deg, var(--aq-gold-dark), var(--aq-silver-dark));
+}
+
+.aquarelle-memory-carousel__dots {
+  display: flex;
+  align-items: center;
+  gap: 0.42rem;
+}
+
+.aquarelle-memory-carousel__dot {
+  width: 0.36rem;
+  height: 0.36rem;
+  border: 0;
+  border-radius: 50%;
+  padding: 0;
+  cursor: pointer;
+  background: rgba(143, 150, 163, 0.55);
+  transition: width 220ms ease, border-radius 220ms ease, background 220ms ease;
+}
+
+.aquarelle-memory-carousel__dot--active {
+  width: 1.65rem;
+  border-radius: 999px;
+  background: var(--aq-gold-dark);
+}
+
+.aquarelle-memory-carousel__caption {
+  position: relative;
+  z-index: 3;
+  max-width: 29ch;
+  margin: 1.05rem auto 0;
+  padding: 0 1.2rem;
+  color: var(--aq-muted);
+  font-family: var(--aq-serif);
+  font-size: 0.86rem;
+  font-style: italic;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.aquarelle-memory-carousel--empty {
+  display: grid;
+  min-height: 18rem;
+  place-content: center;
+  justify-items: center;
+  gap: 0.8rem;
+  padding: 2rem;
+  color: var(--aq-muted);
+  font-family: var(--aq-serif);
+  text-align: center;
+}
+
+@media (max-width: 23rem) {
+  .aquarelle-memory-carousel__stage {
+    min-height: 30rem;
+    padding-inline: 1.8rem;
+  }
+
+  .aquarelle-memory-carousel__viewport {
+    width: min(78vw, 20rem);
+  }
+
+  .aquarelle-memory-carousel__arrow {
+    width: 2.55rem;
+    height: 2.55rem;
+  }
+
+  .aquarelle-memory-carousel__arrow--previous {
+    left: 0.2rem;
+  }
+
+  .aquarelle-memory-carousel__arrow--next {
+    right: 0.2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aquarelle-memory-carousel__figure,
+  .aquarelle-memory-carousel__arrow,
+  .aquarelle-memory-carousel__dot {
+    transition: none !important;
+  }
+}
+
+/* ========================================================================== */
+/* Aquarelle opening replica: immersive photo, realistic envelope and text FX */
+/* ========================================================================== */
+.public-invitation--aquarelle {
+  --aq-script: "Italianno", "Snell Roundhand", "Segoe Script", cursive;
+  --aq-serif: "Cormorant Garamond", "Bodoni 72", Didot, "Times New Roman", serif;
+  --aq-sans: "Montserrat", "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+}
+
+.aquarelle-opening {
+  position: fixed;
+  z-index: 120;
+  inset: 0;
+  display: grid;
+  min-height: 100svh;
+  grid-template-rows: minmax(0, 0.82fr) auto auto minmax(0, 0.7fr);
+  align-items: center;
+  justify-items: center;
+  overflow: hidden;
+  padding:
+    max(1rem, env(safe-area-inset-top))
+    1rem
+    max(1.15rem, env(safe-area-inset-bottom));
+  background: #202127;
+  color: #fff;
+  isolation: isolate;
+  touch-action: none;
+}
+
+.aquarelle-opening::before {
+  inset: 0;
+  border: 0;
+  clip-path: none;
+  background:
+    radial-gradient(circle at 50% 42%, transparent 15%, rgba(10, 11, 14, 0.18) 55%, rgba(8, 9, 12, 0.7) 100%),
+    linear-gradient(180deg, rgba(10, 11, 14, 0.24), rgba(13, 14, 18, 0.02) 34%, rgba(11, 12, 15, 0.52));
+  opacity: 1;
+  pointer-events: none;
+}
+
+.aquarelle-opening__photo {
+  position: absolute;
+  z-index: -5;
+  inset: -2.5rem;
+  background-color: #373942;
+  background-position: center 38%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: saturate(0.82) contrast(0.96) brightness(0.72);
+  will-change: transform;
+}
+
+.aquarelle-opening__photo-blur {
+  position: absolute;
+  z-index: -4;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(17, 18, 23, 0.42), rgba(17, 18, 23, 0.04) 42%, rgba(15, 16, 20, 0.52)),
+    rgba(22, 23, 28, 0.08);
+  backdrop-filter: blur(1.5px);
+  pointer-events: none;
+}
+
+.aquarelle-opening__vignette {
+  position: absolute;
+  z-index: -3;
+  inset: 0;
+  box-shadow:
+    inset 0 0 8rem rgba(3, 4, 6, 0.62),
+    inset 0 -9rem 7rem rgba(5, 6, 8, 0.42);
+  pointer-events: none;
+}
+
+.aquarelle-opening__grain {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  opacity: 0.2;
+  background-image:
+    repeating-radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.2) 0 0.4px, transparent 0.6px 3px),
+    repeating-radial-gradient(circle at 70% 62%, rgba(0, 0, 0, 0.18) 0 0.4px, transparent 0.7px 4px);
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+
+.aquarelle-opening__metal-wash {
+  position: absolute;
+  z-index: -1;
+  width: 25rem;
+  height: 12rem;
+  border-radius: 48% 52% 46% 54% / 58% 42% 61% 39%;
+  filter: blur(14px);
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.aquarelle-opening__metal-wash--gold {
+  top: -7rem;
+  left: -10rem;
+  transform: rotate(-18deg);
+  background: radial-gradient(ellipse, rgba(232, 203, 126, 0.9), rgba(182, 138, 53, 0.08) 68%, transparent 72%);
+}
+
+.aquarelle-opening__metal-wash--silver {
+  right: -11rem;
+  bottom: -5rem;
+  transform: rotate(156deg);
+  background: radial-gradient(ellipse, rgba(233, 237, 244, 0.92), rgba(149, 157, 172, 0.08) 68%, transparent 72%);
+}
+
+.aquarelle-opening__headline {
+  position: relative;
+  z-index: 8;
+  align-self: end;
+  margin: 0 0 1.15rem;
+  color: rgba(255, 255, 255, 0.96);
+  font-family: var(--aq-script);
+  font-size: clamp(2.5rem, 12vw, 4rem);
+  font-weight: 400;
+  letter-spacing: 0.005em;
+  line-height: 0.9;
+  text-align: center;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.38);
+}
+
+.aquarelle-opening__headline p,
+.aquarelle-opening__headline span {
+  margin: 0;
+}
+
+.aquarelle-opening__character {
+  display: inline-block;
+  min-width: 0.03em;
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  filter: blur(0);
+  animation: aq-opening-character 0.52s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: var(--aq-character-delay, 0s);
+  will-change: transform, opacity, filter;
+}
+
+@keyframes aq-opening-character {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0.75rem, 0);
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    filter: blur(0);
+  }
+}
+
+.aquarelle-envelope {
+  position: relative;
+  z-index: 7;
+  display: block;
+  width: min(90vw, 25rem);
+  height: 19.4rem;
+  border: 0;
+  padding: 0;
+  cursor: grab;
+  background: transparent;
+  perspective: 1300px;
+  transform-style: preserve-3d;
+  -webkit-tap-highlight-color: transparent;
+  will-change: transform;
+}
+
+.aquarelle-envelope:active {
+  cursor: grabbing;
+}
+
+.aquarelle-envelope__scene {
+  position: absolute;
+  inset: 0;
+  display: block;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.aquarelle-envelope__shadow {
+  right: 7%;
+  bottom: 0.15rem;
+  left: 7%;
+  height: 2.65rem;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.46);
+  filter: blur(21px);
+  transform: translateZ(-20px);
+}
+
+.aquarelle-envelope__back,
+.aquarelle-envelope__lining,
+.aquarelle-envelope__front,
+.aquarelle-envelope__flap,
+.aquarelle-envelope__letter {
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: auto;
+}
+
+.aquarelle-envelope__back {
+  z-index: 1;
+  bottom: 1.25rem;
+  width: 100%;
+  height: 13.25rem;
+  border: 1px solid rgba(224, 226, 232, 0.62);
+  border-radius: 0.38rem;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.97), rgba(216, 219, 226, 0.98)),
+    #ececf0;
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.34),
+    inset 0 1px rgba(255, 255, 255, 0.95);
+}
+
+.aquarelle-envelope__lining {
+  z-index: 2;
+  bottom: 7rem;
+  width: calc(100% - 0.15rem);
+  height: 7.55rem;
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+  background:
+    radial-gradient(circle at 22% 70%, rgba(230, 196, 111, 0.54), transparent 23%),
+    radial-gradient(circle at 78% 62%, rgba(211, 215, 224, 0.74), transparent 28%),
+    linear-gradient(145deg, #f9f7f1, #dedfe4);
+  opacity: 0.98;
+}
+
+.aquarelle-envelope__letter {
+  z-index: 3;
+  bottom: 4.15rem;
+  display: grid;
+  width: 84%;
+  height: 14rem;
+  place-content: center;
+  justify-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(181, 139, 54, 0.38);
+  border-radius: 0.18rem;
+  background:
+    linear-gradient(rgba(255, 254, 250, 0.96), rgba(255, 254, 250, 0.985)),
+    repeating-linear-gradient(42deg, rgba(60, 56, 51, 0.035) 0 1px, transparent 1px 7px);
+  box-shadow: 0 12px 28px rgba(24, 24, 30, 0.18);
+  transform: translateY(2.1rem);
+  transform-origin: center bottom;
+  will-change: transform, opacity;
+}
+
+.aquarelle-envelope__letter-border {
+  position: absolute;
+  inset: 0.55rem;
+  border: 1px solid rgba(181, 139, 54, 0.34);
+  clip-path: polygon(0 3%, 7% 0, 16% 2%, 27% 0.5%, 39% 1.8%, 52% 0, 65% 2%, 78% 0.4%, 90% 1.7%, 100% 0, 99% 18%, 100% 37%, 98.8% 56%, 100% 76%, 98.7% 100%, 82% 98.6%, 65% 100%, 49% 98.6%, 32% 100%, 16% 98.5%, 0 100%, 1.2% 78%, 0 56%, 1.2% 34%, 0 16%);
+}
+
+.aquarelle-envelope__letter-watercolor {
+  position: absolute;
+  width: 13rem;
+  height: 6.5rem;
+  border-radius: 48% 52% 46% 54% / 61% 44% 56% 39%;
+  filter: blur(1px);
+  opacity: 0.25;
+}
+
+.aquarelle-envelope__letter-watercolor--gold {
+  top: -2.8rem;
+  left: -5.5rem;
+  transform: rotate(-15deg);
+  background: radial-gradient(ellipse, #e5c778, rgba(213, 172, 78, 0.12) 70%, transparent 74%);
+}
+
+.aquarelle-envelope__letter-watercolor--silver {
+  right: -5.2rem;
+  bottom: -2.7rem;
+  transform: rotate(162deg);
+  background: radial-gradient(ellipse, #d8dce4, rgba(159, 167, 181, 0.12) 70%, transparent 74%);
+}
+
+.aquarelle-envelope__letter-copy {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  justify-items: center;
+  color: #36353a;
+  text-align: center;
+}
+
+.aquarelle-envelope__letter-kicker {
+  margin-bottom: 0.2rem;
+  color: #8e6b27;
+  font-family: var(--aq-sans);
+  font-size: 0.48rem;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.aquarelle-envelope__letter-name {
+  display: block;
+  max-width: 12ch;
+  font-family: var(--aq-script);
+  font-size: clamp(2.2rem, 10vw, 3rem);
+  line-height: 0.7;
+  white-space: nowrap;
+}
+
+.aquarelle-envelope__letter-ampersand {
+  margin: 0.1rem 0;
+  color: #b78b35;
+  font-family: var(--aq-serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  line-height: 1;
+}
+
+.aquarelle-envelope__front {
+  z-index: 6;
+  bottom: 1.25rem;
+  width: 100%;
+  height: 13.25rem;
+  pointer-events: none;
+}
+
+.aquarelle-envelope__front--left {
+  clip-path: polygon(0 0, 52% 50%, 0 100%);
+  background: linear-gradient(130deg, #f5f4f1 0%, #dfe1e7 96%);
+}
+
+.aquarelle-envelope__front--right {
+  clip-path: polygon(100% 0, 48% 50%, 100% 100%);
+  background: linear-gradient(230deg, #f9f8f5 0%, #d9dce3 96%);
+}
+
+.aquarelle-envelope__front--bottom {
+  clip-path: polygon(0 100%, 50% 42%, 100% 100%);
+  background: linear-gradient(180deg, #f4f3f0, #e0e2e7);
+  filter: drop-shadow(0 -1px rgba(91, 91, 99, 0.08));
+}
+
+.aquarelle-envelope__flap {
+  z-index: 7;
+  top: 4.88rem;
+  width: 100%;
+  height: 8.55rem;
+  transform: rotateX(0deg);
+  transform-origin: top center;
+  transform-style: preserve-3d;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  background: linear-gradient(180deg, #fdfcf9 0%, #d9dce2 100%);
+  filter: drop-shadow(0 5px 4px rgba(20, 20, 26, 0.12));
+  will-change: transform;
+}
+
+.aquarelle-envelope__flap-inner {
+  position: absolute;
+  inset: 0;
+  clip-path: inherit;
+  transform: rotateY(180deg) translateZ(1px);
+  backface-visibility: hidden;
+  background:
+    radial-gradient(circle at 22% 30%, rgba(225, 190, 103, 0.48), transparent 22%),
+    radial-gradient(circle at 76% 38%, rgba(207, 212, 222, 0.75), transparent 29%),
+    #f1f0eb;
+}
+
+.aquarelle-envelope__seal {
+  position: absolute;
+  z-index: 9;
+  top: 10.22rem;
+  left: 50%;
+  display: grid;
+  width: 4.35rem;
+  height: 4.35rem;
+  transform: translateX(-50%) rotate(-3deg);
+  place-items: center;
+  border-radius: 47% 53% 50% 50% / 50% 45% 55% 50%;
+  background:
+    radial-gradient(circle at 32% 25%, rgba(255, 247, 207, 0.82), transparent 25%),
+    radial-gradient(circle at 66% 72%, rgba(91, 55, 10, 0.25), transparent 43%),
+    linear-gradient(145deg, #e6c979 0%, #be8f37 52%, #8f6523 100%);
+  box-shadow:
+    inset 0 0 0 0.18rem rgba(112, 74, 17, 0.23),
+    inset 0 0 0 0.39rem rgba(255, 234, 169, 0.21),
+    0 9px 18px rgba(36, 25, 8, 0.36);
+  color: #fff6dc;
+  will-change: transform, opacity, filter;
+}
+
+.aquarelle-envelope__seal-rim {
+  position: absolute;
+  inset: 0.48rem;
+  border: 1px solid rgba(255, 242, 196, 0.48);
+  border-radius: 50%;
+}
+
+.aquarelle-envelope__seal-copy {
+  position: relative;
+  z-index: 1;
+  font-family: var(--aq-serif);
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px rgba(73, 48, 7, 0.55);
+}
+
+.aquarelle-envelope__spark {
+  position: absolute;
+  z-index: 10;
+  color: #f6dc96;
+  font-size: 1rem;
+  opacity: 0.72;
+  text-shadow: 0 0 12px rgba(246, 220, 150, 0.65);
+  animation: aq-envelope-spark 2.4s ease-in-out infinite;
+}
+
+.aquarelle-envelope__spark--one {
+  top: 7.15rem;
+  right: 2.2rem;
+}
+
+.aquarelle-envelope__spark--two {
+  bottom: 2.8rem;
+  left: 2.4rem;
+  animation-delay: -1.1s;
+}
+
+.aquarelle-opening__prompt {
+  position: relative;
+  z-index: 9;
+  display: grid;
+  align-self: start;
+  margin-top: -0.2rem;
+  justify-items: center;
+  gap: 0.15rem;
+  border: 0;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  background: transparent;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.42);
+}
+
+.aquarelle-opening__prompt svg {
+  animation: none;
+  color: #e4c56f;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
+}
+
+.aquarelle-opening__prompt strong {
+  font-family: var(--aq-serif);
+  font-size: 0.88rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.aquarelle-opening__prompt span {
+  display: none;
+}
+
+.aquarelle-opening__opening-flash {
+  position: absolute;
+  z-index: 30;
+  inset: 0;
+  transform: scaleY(0);
+  transform-origin: center;
+  background: rgba(255, 254, 250, 0.98);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.aquarelle-opening--opening .aquarelle-envelope__scene {
+  animation: aq-envelope-scene-open 1.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.aquarelle-opening--opening .aquarelle-envelope__flap {
+  z-index: 2;
+  animation: aq-envelope-flap-open 0.68s cubic-bezier(0.35, 0, 0.18, 1) both;
+}
+
+.aquarelle-opening--opening .aquarelle-envelope__seal {
+  animation: aq-envelope-seal-break 0.48s cubic-bezier(0.32, 0, 0.67, 0) both;
+}
+
+.aquarelle-opening--opening .aquarelle-envelope__letter {
+  animation: aq-envelope-letter-rise 1.48s 0.28s cubic-bezier(0.18, 0.85, 0.24, 1) both;
+}
+
+.aquarelle-opening--opening .aquarelle-envelope__front {
+  animation: aq-envelope-front-drop 0.7s 0.6s ease-in both;
+}
+
+.aquarelle-opening--opening .aquarelle-envelope__back,
+.aquarelle-opening--opening .aquarelle-envelope__lining {
+  animation: aq-envelope-back-drop 0.72s 0.62s ease-in both;
+}
+
+.aquarelle-opening--opening .aquarelle-envelope__spark {
+  animation: aq-envelope-spark-burst 0.62s ease-out both;
+}
+
+.aquarelle-opening--opening .aquarelle-opening__opening-flash {
+  animation: aq-opening-flash 0.72s 1.05s ease-in-out both;
+}
+
+@keyframes aq-envelope-spark {
+  0%, 100% { transform: scale(0.82) rotate(0deg); opacity: 0.35; }
+  50% { transform: scale(1.15) rotate(14deg); opacity: 0.9; }
+}
+
+@keyframes aq-envelope-flap-open {
+  0% { transform: rotateX(0deg); }
+  58% { transform: rotateX(182deg); }
+  100% { transform: rotateX(176deg); }
+}
+
+@keyframes aq-envelope-seal-break {
+  0% { transform: translateX(-50%) rotate(-3deg) scale(1); opacity: 1; filter: blur(0); }
+  42% { transform: translateX(-50%) rotate(5deg) scale(1.08); opacity: 1; }
+  100% { transform: translateX(-50%) translateY(1.3rem) rotate(17deg) scale(0.55); opacity: 0; filter: blur(3px); }
+}
+
+@keyframes aq-envelope-letter-rise {
+  0% { transform: translateY(2.1rem) scale(1); opacity: 1; }
+  42% { transform: translateY(-8rem) scale(1.025); opacity: 1; }
+  72% { transform: translateY(-18rem) scale(1.16); opacity: 1; }
+  100% { transform: translateY(-44rem) scale(1.9); opacity: 0; }
+}
+
+@keyframes aq-envelope-front-drop {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(11rem) scale(0.88); opacity: 0; }
+}
+
+@keyframes aq-envelope-back-drop {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(9rem) scale(0.9); opacity: 0; }
+}
+
+@keyframes aq-envelope-scene-open {
+  0%, 38% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(18vh) scale(0.9); }
+}
+
+@keyframes aq-envelope-spark-burst {
+  0% { opacity: 0.85; transform: scale(0.8); }
+  60% { opacity: 1; transform: translateY(-1.4rem) scale(1.7) rotate(28deg); }
+  100% { opacity: 0; transform: translateY(-2.4rem) scale(2.1) rotate(44deg); }
+}
+
+@keyframes aq-opening-flash {
+  0% { transform: scaleY(0); opacity: 0; }
+  42% { transform: scaleY(1); opacity: 0.96; }
+  100% { transform: scaleY(1); opacity: 0; }
+}
+
+/* Text movement inspired by the reference: soft blur, upward reveal and tracking. */
+
+
+.aq-text-reveal--script {
+  transform: translate3d(0, 1.9rem, 0) scale(0.96);
+  letter-spacing: 0.025em;
+}
+
+.aq-text-reveal--visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  clip-path: inset(-12% -8% -18% -8%);
+  filter: blur(0);
+}
+
+@media (scripting: none) {
+  .aq-text-reveal {
+    opacity: 1;
+    transform: none;
+    clip-path: none;
+    filter: none;
+  }
+}
+
+.public-invitation--aquarelle .invitation-section__eyebrow,
+.public-invitation--aquarelle .aquarelle-hero__pretitle,
+.public-invitation--aquarelle .aquarelle-hero__announcement,
+.public-invitation--aquarelle .invitation-countdown__kicker,
+.public-invitation--aquarelle .invitation-event-details__label,
+.public-invitation--aquarelle .invitation-location__microcopy {
+  font-family: var(--aq-sans);
+  font-weight: 500;
+  letter-spacing: 0.34em;
+}
+
+.public-invitation--aquarelle .invitation-section__title,
+.public-invitation--aquarelle .invitation-recipient__name,
+.public-invitation--aquarelle .invitation-countdown__heading,
+.public-invitation--aquarelle .aquarelle-footer p {
+  font-family: var(--aq-script);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.public-invitation--aquarelle .invitation-section__title {
+  font-size: clamp(3.25rem, 16vw, 5.35rem);
+  line-height: 0.78;
+}
+
+.public-invitation--aquarelle .aquarelle-hero__names {
+  font-family: var(--aq-script);
+  font-size: clamp(4.2rem, 20vw, 6.5rem);
+  line-height: 0.7;
+}
+
+.public-invitation--aquarelle .invitation-recipient__name {
+  font-size: clamp(3.7rem, 18vw, 5.8rem);
+  line-height: 0.78;
+}
+
+.public-invitation--aquarelle .invitation-countdown__heading {
+  font-size: clamp(3.3rem, 15vw, 5rem);
+  line-height: 0.8;
+}
+
+.public-invitation--aquarelle .invitation-recipient__message,
+.public-invitation--aquarelle .invitation-gallery__hint,
+.public-invitation--aquarelle .aquarelle-memory-carousel__caption,
+.public-invitation--aquarelle .invitation-rsvp-card__copy,
+.public-invitation--aquarelle .invitation-location__address,
+.public-invitation--aquarelle .invitation-event-details__value {
+  font-family: var(--aq-serif);
+  font-weight: 300;
+}
+
+@media (max-height: 42rem) {
+  .aquarelle-opening {
+    grid-template-rows: minmax(0, 0.46fr) auto auto minmax(0, 0.25fr);
+  }
+
+  .aquarelle-opening__headline {
+    margin-bottom: 0.3rem;
+    font-size: 2.35rem;
+  }
+
+  .aquarelle-envelope {
+    width: min(78vw, 21rem);
+    height: 16.2rem;
+    transform-origin: center;
+  }
+
+  .aquarelle-envelope__scene {
+    transform: scale(0.84);
+  }
+
+  .aquarelle-opening__prompt {
+    margin-top: -1.15rem;
+  }
+}
+
+@media (min-width: 44rem) {
+  .aquarelle-opening__photo {
+    background-position: center 34%;
+  }
+
+  .aquarelle-envelope {
+    width: 25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aquarelle-envelope__spark,
+  .aquarelle-opening__prompt,
+  .aquarelle-opening--opening .aquarelle-envelope__scene,
+  .aquarelle-opening--opening .aquarelle-envelope__flap,
+  .aquarelle-opening--opening .aquarelle-envelope__seal,
+  .aquarelle-opening--opening .aquarelle-envelope__letter,
+  .aquarelle-opening--opening .aquarelle-envelope__front,
+  .aquarelle-opening--opening .aquarelle-envelope__back,
+  .aquarelle-opening--opening .aquarelle-envelope__lining,
+  .aquarelle-opening--opening .aquarelle-opening__opening-flash {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  .aq-text-reveal {
+    opacity: 1;
+    transform: none;
+    clip-path: none;
+    filter: none;
+    transition: none;
+  }
+}
+
+/* Text remains visible by default. Reveal classes are applied only as a
+   progressive enhancement after the envelope has opened. */
+
+/* ========================================================================== */
+/* Aquarelle main-cover accuracy pass                                         */
+/* Matches the reference composition: immersive portrait, painted edges,      */
+/* white torn-paper lockup, calligraphic names, rings, announcement and date.  */
+/* ========================================================================== */
+.public-invitation--aquarelle .aquarelle-hero {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #fffefa;
+  isolation: isolate;
+}
+
+.public-invitation--aquarelle .aquarelle-hero__photo {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 58svh;
+  min-height: 28rem;
+  max-height: 43rem;
+  margin: 0;
+  overflow: hidden;
+  background: linear-gradient(155deg, #d8d9dc, #8f9299);
+}
+
+.public-invitation--aquarelle .aquarelle-hero__photo-image,
+.public-invitation--aquarelle .aquarelle-hero__photo-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+.public-invitation--aquarelle .aquarelle-hero__photo-image {
+  display: block;
+  object-fit: cover;
+  object-position: center 43%;
+  filter: saturate(0.94) contrast(0.97) brightness(1.035);
+  transform-origin: 50% 44%;
+}
+
+.public-invitation--aquarelle .aquarelle-hero__photo-veil {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, transparent 36%, rgba(25, 26, 30, 0.08) 78%, rgba(25, 26, 30, 0.2) 100%),
+    radial-gradient(circle at 50% 40%, transparent 52%, rgba(25, 26, 31, 0.1) 100%);
+  pointer-events: none;
+}
+
+.public-invitation--aquarelle .aquarelle-hero__photo-paint {
+  position: absolute;
+  z-index: 5;
+  left: -4%;
+  width: 108%;
+  pointer-events: none;
+}
+
+.public-invitation--aquarelle .aquarelle-hero__photo-paint--top {
+  top: -2.2rem;
+  height: 8.2rem;
+  opacity: 0.93;
+  background:
+    radial-gradient(ellipse at 4% 28%, rgba(255, 255, 255, 0.96) 0 15%, transparent 16%),
+    radial-gradient(ellipse at 17% 8%, rgba(255, 255, 255, 0.92) 0 18%, transparent 19%),
+    radial-gradient(ellipse at 43% -8%, rgba(255, 255, 255, 0.7) 0 26%, transparent 27%),
+    radial-gradient(ellipse at 78% 2%, rgba(245, 246, 248, 0.9) 0 20%, transparent 21%),
+    radial-gradient(ellipse at 101% 22%, rgba(255, 255, 255, 0.98) 0 22%, transparent 23%);
+  filter: blur(0.2px);
+}
+
+.public-invitation--aquarelle .aquarelle-hero__photo-paint--bottom {
+  right: -4%;
+  bottom: -2.65rem;
+  height: 7.2rem;
+  opacity: 0.94;
+  background:
+    radial-gradient(ellipse at 4% 72%, rgba(255, 255, 255, 0.99) 0 19%, transparent 20%),
+    radial-gradient(ellipse at 20% 92%, rgba(255, 255, 255, 0.98) 0 25%, transparent 26%),
+    radial-gradient(ellipse at 46% 104%, rgba(255, 255, 255, 0.99) 0 31%, transparent 32%),
+    radial-gradient(ellipse at 73% 91%, rgba(255, 255, 255, 0.98) 0 27%, transparent 28%),
+    radial-gradient(ellipse at 101% 69%, rgba(255, 255, 255, 0.99) 0 23%, transparent 24%);
+}
+
+.public-invitation--aquarelle .aquarelle-hero__photo-wash {
+  z-index: 4;
+  width: 19rem;
+  opacity: 0.16;
+  mix-blend-mode: screen;
+}
+
+.public-invitation--aquarelle .aquarelle-hero__photo-wash--gold {
+  top: -5.8rem;
+  left: -9rem;
+  transform: rotate(-20deg);
+}
+
+.public-invitation--aquarelle .aquarelle-hero__photo-wash--silver {
+  right: -8rem;
+  bottom: -3.7rem;
+  transform: rotate(158deg);
+}
+
+.public-invitation--aquarelle .aquarelle-hero__sprig {
+  z-index: 6;
+  width: 13.5rem;
+  opacity: 0.46;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.12));
+}
+
+.public-invitation--aquarelle .aquarelle-hero__sprig--top {
+  top: -2.2rem;
+  right: -5rem;
+  color: rgba(244, 246, 249, 0.95);
+  transform: rotate(151deg);
+}
+
+.public-invitation--aquarelle .aquarelle-hero__sprig--bottom {
+  bottom: -0.35rem;
+  left: -5.3rem;
+  color: rgba(221, 224, 230, 0.92);
+  transform: scaleX(-1) rotate(157deg);
+}
+
+.public-invitation--aquarelle .aquarelle-hero__paper {
+  position: relative;
+  z-index: 8;
+  display: grid;
+  min-height: 44svh;
+  margin-top: -2.9rem;
+  place-content: center;
+  justify-items: center;
+  padding: 5.1rem 1rem 3.1rem;
+  background:
+    radial-gradient(ellipse at 12% 14%, rgba(212, 175, 90, 0.08), transparent 31%),
+    radial-gradient(ellipse at 91% 20%, rgba(207, 212, 221, 0.16), transparent 34%),
+    linear-gradient(rgba(255, 254, 251, 0.985), rgba(255, 254, 251, 0.985)),
+    repeating-linear-gradient(42deg, rgba(48, 47, 51, 0.025) 0 1px, transparent 1px 7px);
+  color: var(--aq-charcoal);
+  text-align: center;
+}
+
+.public-invitation--aquarelle .aquarelle-hero__torn {
+  top: -2.25rem;
+  height: 3.7rem;
+  color: #fffefa;
+  filter: drop-shadow(0 -2px 2px rgba(255, 255, 255, 0.42));
+}
+
+.public-invitation--aquarelle .aquarelle-hero__name-lockup {
+
+}
+
+.public-invitation--aquarelle .aquarelle-hero__name-flourish {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  width: 103%;
+  height: 7.7rem;
+  transform: translate(-50%, -46%);
+  overflow: visible;
+  color: rgba(49, 48, 52, 0.82);
+  pointer-events: none;
+}
+
+.public-invitation--aquarelle .aquarelle-hero__name-flourish-line,
+.public-invitation--aquarelle .aquarelle-hero__name-flourish-heart,
+.public-invitation--aquarelle .aquarelle-hero__name-flourish-tail {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.55;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.public-invitation--aquarelle .aquarelle-hero__name-flourish-heart {
+  stroke: rgba(49, 48, 52, 0.92);
+}
+
+.public-invitation--aquarelle .aquarelle-hero__names {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-items: center;
+  justify-content: center;
+  column-gap: 0.11em;
+  width: 100%;
+  margin: 0;
+  color: #313034;
+  font-family: var(--aq-script);
+  font-size: clamp(3.25rem, 15vw, 5.15rem);
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  line-height: 0.82;
+  white-space: nowrap;
+}
+
+.public-invitation--aquarelle .aquarelle-hero__names .invitation-hero__ampersand {
+  position: relative;
+  top: 0.12em;
+  margin: 0 0.02em;
+  color: var(--aq-gold-dark);
+  font-family: var(--aq-script);
+  font-size: 0.62em;
+  font-weight: 400;
+}
+
+.public-invitation--aquarelle .aquarelle-hero__rings {
+  width: 3.85rem;
+  margin: -0.1rem 0 0.2rem;
+  color: var(--aq-gold-dark);
+  opacity: 0.78;
+}
+
+.public-invitation--aquarelle .aquarelle-hero__announcement {
+  margin: 0.2rem 0 0;
+  color: #343338;
+  font-family: var(--aq-serif);
+  font-size: clamp(1.12rem, 5vw, 1.4rem);
+  font-weight: 500;
+  letter-spacing: 0.015em;
+  text-transform: uppercase;
+}
+
+.public-invitation--aquarelle .aquarelle-hero__date {
+  width: min(100%, 14.5rem);
+  gap: 0.65rem;
+  margin-top: 0.65rem;
+  color: #4a494e;
+  font-family: var(--aq-serif);
+  font-size: 1.rem;
+  letter-spacing: 0.16em;
+}
+
+.public-invitation--aquarelle .aquarelle-hero__date span {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--aq-gold-dark));
+}
+
+.public-invitation--aquarelle .aquarelle-hero__date span:last-child {
+  background: linear-gradient(90deg, var(--aq-gold-dark), transparent);
+}
+
+@media (max-width: 23rem) {
+  .public-invitation--aquarelle .aquarelle-hero__photo {
+    height: 56svh;
+    min-height: 25rem;
+  }
+
+  .public-invitation--aquarelle .aquarelle-hero__paper {
+    min-height: 46svh;
+    padding-right: 0.65rem;
+    padding-left: 0.65rem;
+  }
+
+  .public-invitation--aquarelle .aquarelle-hero__names {
+    font-size: clamp(2.75rem, 14vw, 3.45rem);
+  }
+}
+
+@media (min-width: 44rem) {
+  .public-invitation--aquarelle .aquarelle-hero__photo {
+    height: 38rem;
+  }
+
+  .public-invitation--aquarelle .aquarelle-hero__paper {
+    min-height: 26rem;
+  }
+}
+
+/* ========================================================================== */
+/* Aquarelle compact vertical rhythm                                          */
+/* Reduces unnecessary blank space between invitation sections without       */
+/* changing component structure, content, interactions or responsive layout. */
+/* ========================================================================== */
+.public-invitation--aquarelle {
+  --aq-section-space: clamp(3rem, 9vw, 3.8rem);
+  --aq-section-space-compact: clamp(2.35rem, 7vw, 3rem);
+}
+
+/* Main photograph closing block */
+.public-invitation--aquarelle .aquarelle-hero__paper {
+  min-height: auto;
+  padding: 4.35rem 1.4rem 2.65rem;
+}
+
+.public-invitation--aquarelle .aquarelle-hero__rings {
+  padding-top: 0.75rem;
+}
+
+.public-invitation--aquarelle .aquarelle-hero__announcement {
+  margin-top: 1rem;
+}
+
+.public-invitation--aquarelle .aquarelle-hero__date {
+  margin-top: 0.9rem;
+}
+
+.public-invitation--aquarelle .aquarelle-hero__scroll-line {
+  height: 2rem;
+  margin-top: 1.2rem;
+}
+
+/* Personalized message */
+.public-invitation--aquarelle .aquarelle-quote {
+  min-height: auto;
+  padding: var(--aq-section-space) 1.4rem;
+}
+
+.public-invitation--aquarelle .invitation-recipient__ornament {
+  margin: 1.05rem 0;
+}
+
+/* Date and ceremony */
+.public-invitation--aquarelle .invitation-event-details {
+  min-height: auto;
+  padding: var(--aq-section-space) 1.15rem;
+}
+
+.public-invitation--aquarelle .invitation-event-details__card {
+  margin-top: 1.75rem;
+  padding: 1.5rem 1.25rem;
+}
+
+.public-invitation--aquarelle .invitation-event-details__divider {
+  margin: 0.9rem 0;
+}
+
+/* Location */
+.public-invitation--aquarelle .invitation-location {
+  padding: var(--aq-section-space) 0.95rem;
+}
+
+.public-invitation--aquarelle .invitation-location__heading-block {
+  padding: 0 0.9rem 1.55rem;
+}
+
+.public-invitation--aquarelle .invitation-location__card {
+  gap: 0.75rem;
+}
+
+.public-invitation--aquarelle .invitation-location__details {
+  padding: 1.45rem 1.25rem 1.55rem;
+}
+
+.public-invitation--aquarelle .invitation-location__pin {
+  margin-bottom: 0.7rem;
+}
+
+.public-invitation--aquarelle .invitation-location__address {
+  margin-top: 0.65rem;
+}
+
+.public-invitation--aquarelle .invitation-location__directions {
+  margin-top: 1rem;
+}
+
+.public-invitation--aquarelle .invitation-location__map-frame,
+.public-invitation--aquarelle .invitation-location__map-fallback,
+.public-invitation--aquarelle .invitation-location__map {
+  min-height: 16rem;
+}
+
+/* Countdown */
+.public-invitation--aquarelle .invitation-countdown {
+  min-height: auto;
+  padding: var(--aq-section-space) 0.9rem;
+}
+
+.public-invitation--aquarelle .invitation-countdown__grid {
+  margin-top: 1.75rem;
+}
+
+.public-invitation--aquarelle .invitation-countdown__unit {
+  padding-top: 1.05rem;
+  padding-bottom: 0.95rem;
+}
+
+/* Memories */
+.public-invitation--aquarelle .invitation-gallery {
+  padding-top: 4.35rem;
+  padding-bottom: 3.8rem;
+}
+
+.public-invitation--aquarelle .invitation-gallery__frame {
+  margin-top: 1.75rem;
+}
+
+.public-invitation--aquarelle .aquarelle-memory-carousel__stage {
+  min-height: 31.5rem;
+  padding-top: 0.9rem;
+  padding-bottom: 0.75rem;
+}
+
+.public-invitation--aquarelle .aquarelle-memory-carousel__footer {
+  margin-top: 0.35rem;
+}
+
+.public-invitation--aquarelle .aquarelle-memory-carousel__caption {
+  margin-top: 0.75rem;
+}
+
+/* Calendar and sharing */
+.public-invitation--aquarelle .aquarelle-actions {
+  min-height: auto;
+  padding: var(--aq-section-space) 1.3rem;
+}
+
+.public-invitation--aquarelle .invitation-actions__group {
+  margin-top: 1.55rem;
+}
+
+/* RSVP is currently optional/commented in the page, but remains compact if
+   it is enabled again later. */
+.public-invitation--aquarelle .aquarelle-rsvp {
+  min-height: auto;
+  padding: 4.25rem 1.15rem 3.75rem;
+}
+
+/* Final signature */
+.public-invitation--aquarelle .aquarelle-footer {
+  padding: 3.2rem 1.5rem 5.5rem;
+}
+
+@media (max-width: 24rem) {
+  .public-invitation--aquarelle {
+    --aq-section-space: 2.7rem;
+  }
+
+  .public-invitation--aquarelle .aquarelle-hero__paper {
+    padding-bottom: 2.35rem;
+  }
+
+  .public-invitation--aquarelle .aquarelle-memory-carousel__stage {
+    min-height: 29rem;
   }
 }

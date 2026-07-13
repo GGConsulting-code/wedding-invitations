@@ -110,10 +110,10 @@ function PhotoRow({
           {...register(`photos.${index}.sortOrder`, { valueAsNumber: true })}
         />
         <AppInput
-          label="URL HTTPS"
+          label="URL HTTPS o ruta local"
           type="url"
           inputMode="url"
-          placeholder="https://cdn.ejemplo.com/foto.webp"
+          placeholder="/media/photos/uno.jpeg"
           required
           error={error?.url?.message}
           {...register(`photos.${index}.url`)}
@@ -155,7 +155,7 @@ export function PhotoUrlListEditor({ control, register, errors }) {
         <div>
           <h3 className="text-lg font-semibold text-[#442b38]">Fotografías</h3>
           <p className="mt-1 text-sm leading-6 text-[#78636e]">
-            Agrega hasta {MAX_PHOTOS} imágenes HTTPS y ordénalas con las flechas.
+            Agrega hasta {MAX_PHOTOS} imágenes mediante URL HTTPS o rutas locales de public y ordénalas con las flechas.
           </p>
         </div>
         <div className="flex items-center gap-3">

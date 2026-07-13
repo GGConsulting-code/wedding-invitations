@@ -1,63 +1,59 @@
 "use client";
 
 import { CalendarDays, Clock3 } from "lucide-react";
+import { BotanicalSprig, WatercolorWash } from "./AquarelleDecor";
 
-function getEventDateParts(value, timeZone) {
+function formatEventDate(value, timeZone) {
   const date = new Date(value);
-  if (Number.isNaN(date.getTime())) {
-    return {
-      day: "--",
-      month: "Por confirmar",
-      year: "",
-      weekday: "Fecha pendiente",
-      fullDate: "Fecha por confirmar",
-      time: "Hora por confirmar",
-    };
-  }
+  if (Number.isNaN(date.getTime())) return "Fecha por confirmar";
 
-  return {
-    day: new Intl.DateTimeFormat("es-MX", { day: "2-digit", timeZone }).format(date),
-    month: new Intl.DateTimeFormat("es-MX", { month: "long", timeZone }).format(date),
-    year: new Intl.DateTimeFormat("es-MX", { year: "numeric", timeZone }).format(date),
-    weekday: new Intl.DateTimeFormat("es-MX", { weekday: "long", timeZone }).format(date),
-    fullDate: new Intl.DateTimeFormat("es-MX", { dateStyle: "full", timeZone }).format(date),
-    time: new Intl.DateTimeFormat("es-MX", {
-      hour: "numeric",
-      minute: "2-digit",
-      timeZone,
-      timeZoneName: "short",
-    }).format(date),
-  };
+  return new Intl.DateTimeFormat("es-MX", {
+    dateStyle: "full",
+    timeZone,
+  }).format(date);
+}
+
+function formatEventTime(value, timeZone) {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "Hora por confirmar";
+
+  return new Intl.DateTimeFormat("es-MX", {
+    hour: "numeric",
+    minute: "2-digit",
+    timeZone,
+    timeZoneName: "short",
+  }).format(date);
 }
 
 export function EventDetails({ weddingDateTime, timeZone }) {
-  const date = getEventDateParts(weddingDateTime, timeZone);
-
   return (
-    <section className="invitation-event-details" aria-labelledby="event-details-title">
-      <p className="invitation-section__eyebrow">Join us on</p>
-      <h2 id="event-details-title" className="invitation-section__title">Aparta la fecha</h2>
+    <section className="invitation-event-details aquarelle-section" aria-labelledby="event-details-title">
+      <WatercolorWash className="aquarelle-section__wash aquarelle-section__wash--event" tone="gold" />
+      <BotanicalSprig className="aquarelle-section__sprig aquarelle-section__sprig--event" />
+      <header className="aquarelle-section__heading">
+        <p className="invitation-section__eyebrow">El gran día</p>
+        <h2 id="event-details-title" className="invitation-section__title">Ceremonia</h2>
+      </header>
 
-      <div className="invitation-event-details__editorial-card">
-        <div className="invitation-event-details__calendar" aria-hidden="true">
-          <span className="invitation-event-details__month">{date.month}</span>
-          <span className="invitation-event-details__day">{date.day}</span>
-          <span className="invitation-event-details__year">{date.year}</span>
+      <div className="invitation-event-details__card aquarelle-card">
+        <div className="invitation-event-details__row">
+          <span className="invitation-event-details__icon" aria-hidden="true">
+            <CalendarDays size={22} />
+          </span>
+          <div>
+            <span className="invitation-event-details__label">Fecha</span>
+            <p className="invitation-event-details__value">{formatEventDate(weddingDateTime, timeZone)}</p>
+          </div>
         </div>
-
-        <div className="invitation-event-details__information">
-          <p className="invitation-event-details__weekday">{date.weekday}</p>
-          <p className="invitation-event-details__full-date">
-            <CalendarDays size={18} aria-hidden="true" />
-            {date.fullDate}
-          </p>
-          <p className="invitation-event-details__time">
-            <Clock3 size={18} aria-hidden="true" />
-            {date.time}
-          </p>
-          <p className="invitation-event-details__note">
-            Será un honor compartir contigo el inicio de esta nueva etapa.
-          </p>
+        <div className="invitation-event-details__divider" aria-hidden="true" />
+        <div className="invitation-event-details__row">
+          <span className="invitation-event-details__icon" aria-hidden="true">
+            <Clock3 size={22} />
+          </span>
+          <div>
+            <span className="invitation-event-details__label">Hora</span>
+            <p className="invitation-event-details__value">{formatEventTime(weddingDateTime, timeZone)}</p>
+          </div>
         </div>
       </div>
     </section>

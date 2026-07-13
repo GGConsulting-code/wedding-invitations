@@ -1,13 +1,15 @@
 "use client";
 
-import { LoaderCircle, Music2, Pause, Play, Volume2, VolumeX } from "lucide-react";
+import { useEffect } from "react";
+import { LoaderCircle, Pause, Play, Volume2, VolumeX } from "lucide-react";
 import { useAudioAutoplay } from "../../../hooks/useAudioAutoplay";
 
-export function AudioController({ audio }) {
+export const INVITATION_OPEN_AUDIO_EVENT = "wedding-invitation:open-audio";
+
+export function AudioController({ audio, startOnInvitationOpen = false }) {
   const {
     audioRef,
     error,
-    isAutoplayBlocked,
     isPlaying,
     setVolume,
     startPlayback,
@@ -16,14 +18,28 @@ export function AudioController({ audio }) {
     volume,
   } = useAudioAutoplay({
     src: audio?.url,
-    autoplay: audio?.autoplay,
+    autoplay: startOnInvitationOpen ? false : audio?.autoplay,
     loop: audio?.loop,
   });
+
+  useEffect(() => {
+    if (!startOnInvitationOpen || !audio?.url) return undefined;
+
+    const handleInvitationOpen = () => {
+      // This listener runs synchronously from the envelope click/drag gesture,
+      // so mobile browsers allow playback without showing an extra prompt.
+      void startPlayback();
+    };
+
+    window.addEventListener(INVITATION_OPEN_AUDIO_EVENT, handleInvitationOpen);
+    return () => {
+      window.removeEventListener(INVITATION_OPEN_AUDIO_EVENT, handleInvitationOpen);
+    };
+  }, [audio?.url, startOnInvitationOpen, startPlayback]);
 
   if (!audio?.url) return null;
 
   const isLoading = status === "loading";
-  const trackLabel = [audio.title, audio.artist].filter(Boolean).join(" · ");
 
   return (
     <>
@@ -35,22 +51,6 @@ export function AudioController({ audio }) {
         playsInline
         loop={audio.loop}
       />
-
-      {isAutoplayBlocked ? (
-        <button
-          type="button"
-          className="audio-autoplay-prompt"
-          onClick={() => void startPlayback()}
-        >
-          <span className="audio-autoplay-prompt__icon" aria-hidden="true">
-            <Music2 size={24} />
-          </span>
-          <span className="audio-autoplay-prompt__copy">
-            <strong>Toca para escuchar nuestra canción</strong>
-            {trackLabel ? <small>{trackLabel}</small> : null}
-          </span>
-        </button>
-      ) : null}
 
       <aside className={`audio-controller audio-controller--${status}`} aria-label="Controles de música">
         <button

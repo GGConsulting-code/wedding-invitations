@@ -9,6 +9,7 @@ import {
   defaultWeddingConfig,
   localAdminUser,
 } from "../data/defaultData.js";
+import { LOCAL_MEDIA_PRESET_VERSION } from "../config/localMedia.js";
 import { buildInvitationUrl } from "../utils/invitationUrl.js";
 import { getAccessToken } from "./tokenStore.js";
 
@@ -27,6 +28,7 @@ const createUuid = () => {
 };
 
 const createInitialDatabase = () => ({
+  mediaPresetVersion: LOCAL_MEDIA_PRESET_VERSION,
   weddingConfig: clone(defaultWeddingConfig),
   invitations: clone(defaultInvitations),
 });
@@ -52,6 +54,12 @@ const loadDatabase = () => {
       parsed.weddingConfig &&
       Array.isArray(parsed.invitations)
     ) {
+      if (parsed.mediaPresetVersion !== LOCAL_MEDIA_PRESET_VERSION) {
+        parsed.weddingConfig.photos = clone(defaultWeddingConfig.photos);
+        parsed.weddingConfig.audio = clone(defaultWeddingConfig.audio);
+        parsed.mediaPresetVersion = LOCAL_MEDIA_PRESET_VERSION;
+        storage.setItem(LOCAL_DATABASE_STORAGE_KEY, JSON.stringify(parsed));
+      }
       memoryDatabase = parsed;
       return memoryDatabase;
     }

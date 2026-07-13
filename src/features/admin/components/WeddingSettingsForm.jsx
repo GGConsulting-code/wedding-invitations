@@ -39,6 +39,21 @@ const httpsUrl = (label, { optional = false } = {}) => {
   return schema;
 };
 
+
+const mediaUrl = (label) =>
+  z
+    .string()
+    .trim()
+    .min(1, `${label} es obligatoria.`)
+    .refine((value) => {
+      if (value.startsWith("/")) return true;
+      try {
+        return new URL(value).protocol === "https:";
+      } catch {
+        return false;
+      }
+    }, `${label} debe ser una URL HTTPS o una ruta local que comience con /.`);
+
 const weddingSettingsSchema = z.object({
   version: z.coerce.number().int().min(1),
   coupleDisplayName: z
@@ -73,7 +88,7 @@ const weddingSettingsSchema = z.object({
     .array(
       z.object({
         id: z.string().min(1).max(80),
-        url: httpsUrl("La URL de la fotografía"),
+        url: mediaUrl("La URL de la fotografía"),
         altText: z
           .string()
           .trim()
@@ -84,7 +99,7 @@ const weddingSettingsSchema = z.object({
     )
     .max(20, "Puedes agregar máximo 20 fotografías."),
   audio: z.object({
-    url: httpsUrl("La URL del audio"),
+    url: mediaUrl("La URL del audio"),
     title: z.string().trim().max(120, "Usa máximo 120 caracteres."),
     artist: z.string().trim().max(120, "Usa máximo 120 caracteres."),
     autoplay: z.boolean(),

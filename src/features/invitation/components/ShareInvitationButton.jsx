@@ -29,10 +29,6 @@ export function ShareInvitationButton({ coupleDisplayName, url }) {
 
   return (
     <div className="invitation-share">
-      <button type="button" className="invitation-action invitation-action--share" onClick={handleShare}>
-        <Icon size={18} aria-hidden="true" />
-        Compartir invitación
-      </button>
       <span className="invitation-share__feedback" role="status" aria-live="polite">
         {feedback}
       </span>

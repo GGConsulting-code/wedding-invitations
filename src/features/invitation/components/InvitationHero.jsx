@@ -3,12 +3,7 @@
 import { motion } from "motion/react";
 import { ImageOff } from "lucide-react";
 import { useReducedMotionPreference } from "../../../hooks/useReducedMotionPreference";
-import {
-  BotanicalSprig,
-  TornPaperDivider,
-  WatercolorWash,
-  WeddingRingsMark,
-} from "./AquarelleDecor";
+import { BotanicalSprig } from "./AquarelleDecor";
 
 function formatHeroDate(value, timeZone) {
   const date = new Date(value);
@@ -28,30 +23,6 @@ function splitCoupleNames(value) {
   return [value || "Nuestra", "Boda"];
 }
 
-function NameFlourish() {
-  return (
-    <svg
-      className="aquarelle-hero__name-flourish"
-      viewBox="0 0 520 132"
-      preserveAspectRatio="none"
-      aria-hidden="true"
-    >
-      <path
-        className="aquarelle-hero__name-flourish-line"
-        d="M8 65C58 65 77 57 110 61c30 4 54 14 86 10 24-3 38-12 57-11 15 1 25 9 31 19 6-10 16-18 31-19 19-1 33 8 57 11 32 4 56-6 86-10 33-4 52 4 102 4"
-      />
-      <path
-        className="aquarelle-hero__name-flourish-heart"
-        d="M260 81c-13-18-36-11-36 8 0 18 20 30 36 43 16-13 36-25 36-43 0-19-23-26-36-8Z"
-      />
-      <path
-        className="aquarelle-hero__name-flourish-tail"
-        d="M260 128c1-18 7-28 17-39"
-      />
-    </svg>
-  );
-}
-
 export function InvitationHero({
   coupleDisplayName,
   heroPhoto,
@@ -64,67 +35,58 @@ export function InvitationHero({
   const [firstName, secondName] = splitCoupleNames(coupleDisplayName);
 
   return (
-    <header className="aquarelle-hero">
+    <header className="aquarelle-hero aquarelle-hero--mockup">
       <motion.figure
-        className="aquarelle-hero__photo"
-        initial={prefersReducedMotion ? false : { opacity: 0, scale: 1.035 }}
+        className="aquarelle-hero__mockup-stage"
+        initial={prefersReducedMotion ? false : { opacity: 0, scale: 1.02 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.3, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
       >
         {heroImageUrl ? (
           <motion.img
             src={heroImageUrl}
-            alt={heroPhoto.altText || `Fotografía de ${coupleDisplayName}`}
-            className="aquarelle-hero__photo-image"
+            alt={heroPhoto?.altText || `Fotografía de ${coupleDisplayName}`}
+            className="aquarelle-hero__mockup-image"
             loading="eager"
             decoding="async"
-            initial={prefersReducedMotion ? false : { scale: 1.07 }}
-            animate={{ scale: 1.012 }}
-            transition={{ duration: 2.4, ease: [0.22, 1, 0.36, 1] }}
+            initial={prefersReducedMotion ? false : { scale: 1.06 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
           />
         ) : (
-          <div className="aquarelle-hero__photo-placeholder" role="img" aria-label="Fotografía por agregar">
+          <div
+            className="aquarelle-hero__mockup-placeholder"
+            role="img"
+            aria-label="Fotografía principal por agregar"
+          >
             <ImageOff size={34} aria-hidden="true" />
             <span>Agrega la fotografía principal</span>
           </div>
         )}
 
-       
-      </motion.figure>
+        <span className="aquarelle-hero__mockup-vignette" aria-hidden="true" />
+        <span className="aquarelle-hero__mockup-pill-shadow" aria-hidden="true" />
 
-      <motion.div
-        className="aquarelle-hero__paper"
-        initial={prefersReducedMotion ? false : { opacity: 0, y: 34 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.82, delay: 0.26, ease: [0.22, 1, 0.36, 1] }}
-      >
-        <TornPaperDivider className="aquarelle-hero__torn" />
+        <BotanicalSprig className="aquarelle-hero__mockup-botanical aquarelle-hero__mockup-botanical--top-left" />
+        <BotanicalSprig className="aquarelle-hero__mockup-botanical aquarelle-hero__mockup-botanical--top-right" mirrored />
+        <BotanicalSprig className="aquarelle-hero__mockup-botanical aquarelle-hero__mockup-botanical--bottom-left" />
+        <BotanicalSprig className="aquarelle-hero__mockup-botanical aquarelle-hero__mockup-botanical--bottom-right" mirrored />
+        <span className="aquarelle-hero__mockup-babybreath" aria-hidden="true" />
 
-        <p className="aquarelle-hero__announcement">NUESTRA BODA CIVIL:</p>
-        <div className="aquarelle-hero__date" aria-label={`Fecha de la boda: ${displayDate}`}>
-          <span aria-hidden="true" />
-          <time dateTime={weddingDateTime}>{displayDate}</time>
-          <span aria-hidden="true" />
-        </div>
-
-        <div className="aquarelle-hero__name-lockup">
-          <NameFlourish />
-          <h1 className="aquarelle-hero__names">
+        <figcaption className="aquarelle-hero__mockup-copy">
+          <p className="aquarelle-hero__mockup-kicker">LA BODA DE:</p>
+          <h1 className="aquarelle-hero__mockup-names">
             <span>{firstName}</span>
-            <span className="invitation-hero__ampersand">&amp;</span>
+            <span className="aquarelle-hero__mockup-ampersand"> &amp; </span>
             <span>{secondName}</span>
           </h1>
-        </div>
-         <br/>
-        <br/>
-        <br/>
-
-        <WeddingRingsMark className="aquarelle-hero__rings" />
-        <br/>
-        <br/>
-
-
-      </motion.div>
+          <div className="aquarelle-hero__mockup-date" aria-label={`Fecha de la boda: ${displayDate}`}>
+            <span aria-hidden="true" />
+            <time dateTime={weddingDateTime}>{displayDate}</time>
+            <span aria-hidden="true" />
+          </div>
+        </figcaption>
+      </motion.figure>
     </header>
   );
 }

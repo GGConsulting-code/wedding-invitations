@@ -3697,8 +3697,7 @@ img {
 }
 
 .public-invitation--aquarelle .invitation-location__map {
-  min-height: 18rem;
-  filter: grayscale(0.95) sepia(0.08) contrast(0.94);
+  filter: none;
 }
 
 /* Countdown */
@@ -5408,7 +5407,7 @@ img {
 .public-invitation--aquarelle .aquarelle-hero__name-flourish {
   position: absolute;
   z-index: 0;
-  top: 50%;
+  top: 80%;
   left: 50%;
   width: 103%;
   height: 7.7rem;
@@ -5691,4 +5690,514 @@ img {
   .public-invitation--aquarelle .aquarelle-memory-carousel__stage {
     min-height: 29rem;
   }
+}
+
+.public-invitation {
+  -webkit-text-size-adjust: 115%;
+  text-size-adjust: 115%;
+}
+
+/* Reduce el espacio entre la portada y el destinatario */
+.public-invitation--aquarelle .aquarelle-hero__paper {
+  padding-bottom: 0.75rem;
+}
+
+.public-invitation--aquarelle .aquarelle-hero__rings {
+  margin: 0.75rem 0 0;
+  padding-top: 0;
+}
+
+.public-invitation--aquarelle .aquarelle-quote {
+  margin-top: 0;
+  padding-top: 1.25rem;
+}
+
+/* =====================================================================
+   Mockup hero full-screen replica
+   ===================================================================== */
+.public-invitation--aquarelle .aquarelle-hero.aquarelle-hero--mockup {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.public-invitation--aquarelle .aquarelle-hero.aquarelle-hero--mockup .aquarelle-hero__paper,
+.public-invitation--aquarelle .aquarelle-hero.aquarelle-hero--mockup .aquarelle-hero__photo,
+.public-invitation--aquarelle .aquarelle-hero.aquarelle-hero--mockup .aquarelle-hero__torn,
+.public-invitation--aquarelle .aquarelle-hero.aquarelle-hero--mockup .aquarelle-hero__rings {
+  display: none;
+}
+
+.public-invitation--aquarelle .aquarelle-hero__mockup-stage {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 100svh;
+  height: 100svh;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 0;
+  background: #354046;
+  isolation: isolate;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.public-invitation--aquarelle .aquarelle-hero__mockup-image,
+.public-invitation--aquarelle .aquarelle-hero__mockup-placeholder {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.public-invitation--aquarelle .aquarelle-hero__mockup-image {
+  object-fit: cover;
+  object-position: center 24%;
+  filter: saturate(0.92) contrast(1.04) brightness(0.92);
+}
+
+.public-invitation--aquarelle .aquarelle-hero__mockup-placeholder {
+  display: grid;
+  place-content: center;
+  gap: 0.8rem;
+  justify-items: center;
+  color: rgba(255, 255, 255, 0.84);
+  background:
+    linear-gradient(180deg, rgba(40, 50, 54, 0.95) 0%, rgba(24, 28, 30, 0.98) 100%);
+}
+
+.public-invitation--aquarelle .aquarelle-hero__mockup-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(16, 18, 20, 0.48) 0%, rgba(16, 18, 20, 0.09) 18%, rgba(16, 18, 20, 0.04) 38%, rgba(16, 18, 20, 0.23) 72%, rgba(16, 18, 20, 0.7) 100%),
+    linear-gradient(90deg, rgba(16, 18, 20, 0.3) 0%, transparent 22%, transparent 78%, rgba(16, 18, 20, 0.28) 100%);
+  pointer-events: none;
+}
+
+.public-invitation--aquarelle .aquarelle-hero__mockup-frame {
+  position: absolute;
+  z-index: 3;
+  top: 21.5%;
+  right: 8%;
+  left: 8%;
+  bottom: 22%;
+  border: 1.5px solid rgba(202, 163, 72, 0.9);
+  border-radius: 2.25rem;
+  box-shadow: 0 0 0 1px rgba(202, 163, 72, 0.12) inset;
+  pointer-events: none;
+}
+
+.public-invitation--aquarelle .aquarelle-hero__mockup-pill-shadow {
+  position: absolute;
+  z-index: 2;
+  top: calc(env(safe-area-inset-top, 0px) + 5.9rem);
+  left: 50%;
+  width: 10rem;
+  height: 2.85rem;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.24);
+  filter: blur(14px);
+  pointer-events: none;
+}
+
+.public-invitation--aquarelle .aquarelle-hero__mockup-pill {
+  position: absolute;
+  z-index: 5;
+  top: calc(env(safe-area-inset-top, 0px) + 4.85rem);
+  left: 50%;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-height: 2.45rem;
+  padding: 0.4rem 1rem;
+  transform: translateX(-50%);
+  border: 1px solid rgba(212, 175, 90, 0.82);
+  border-radius: 999px;
+  background: rgba(72, 82, 83, 0.74);
+  box-shadow:
+    0 0.65rem 1.4rem rgba(0, 0, 0, 0.28),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  color: rgba(255, 248, 232, 0.98);
+  font-family: var(--wedding-serif);
+  font-size: 0.92rem;
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
+}
+
+.public-invitation--aquarelle .aquarelle-hero__mockup-pill-dot {
+  width: 0;
+  height: 0;
+  border-top: 0.34rem solid transparent;
+  border-bottom: 0.34rem solid transparent;
+  border-left: 0.5rem solid rgba(226, 190, 96, 0.96);
+}
+
+.public-invitation--aquarelle .aquarelle-hero__mockup-botanical {
+  position: absolute;
+  z-index: 4;
+  width: 9.5rem;
+  color: rgba(230, 244, 208, 0.95);
+  opacity: 0.97;
+  filter: drop-shadow(0 0.4rem 0.75rem rgba(0, 0, 0, 0.2));
+  pointer-events: none;
+}
+
+.public-invitation--aquarelle .aquarelle-hero__mockup-botanical .aquarelle-sprig__flowers {
+  color: rgba(255, 255, 255, 0.98);
+}
+
+.public-invitation--aquarelle .aquarelle-hero__mockup-botanical--top-left {
+  top: calc(env(safe-area-inset-top, 0px) - 0.55rem);
+  left: -1.15rem;
+  transform: rotate(9deg);
+}
+
+.public-invitation--aquarelle .aquarelle-hero__mockup-botanical--top-right {
+  top: calc(env(safe-area-inset-top, 0px) - 0.55rem);
+  right: -1.25rem;
+  transform: scaleX(-1) rotate(9deg);
+}
+
+.public-invitation--aquarelle .aquarelle-hero__mockup-botanical--bottom-left {
+  bottom: 5.9rem;
+  left: -1.6rem;
+  width: 10.5rem;
+  transform: rotate(-19deg);
+}
+
+.public-invitation--aquarelle .aquarelle-hero__mockup-botanical--bottom-right {
+  right: -1.65rem;
+  bottom: 5.75rem;
+  width: 10.7rem;
+  transform: scaleX(-1) rotate(-16deg);
+}
+
+.public-invitation--aquarelle .aquarelle-hero__mockup-babybreath {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  bottom: 2rem;
+  width: 7rem;
+  height: 2.8rem;
+  transform: translateX(-50%);
+  background:
+    radial-gradient(circle at 6% 60%, rgba(255,255,255,0.95) 0 0.24rem, transparent 0.25rem),
+    radial-gradient(circle at 18% 22%, rgba(255,255,255,0.95) 0 0.22rem, transparent 0.23rem),
+    radial-gradient(circle at 30% 55%, rgba(255,255,255,0.95) 0 0.21rem, transparent 0.22rem),
+    radial-gradient(circle at 43% 18%, rgba(255,255,255,0.95) 0 0.22rem, transparent 0.23rem),
+    radial-gradient(circle at 57% 66%, rgba(255,255,255,0.95) 0 0.24rem, transparent 0.25rem),
+    radial-gradient(circle at 68% 26%, rgba(255,255,255,0.95) 0 0.22rem, transparent 0.23rem),
+    radial-gradient(circle at 80% 57%, rgba(255,255,255,0.95) 0 0.22rem, transparent 0.23rem),
+    radial-gradient(circle at 94% 35%, rgba(255,255,255,0.95) 0 0.24rem, transparent 0.25rem),
+    linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7));
+  background-repeat: no-repeat;
+  background-size:
+    auto, auto, auto, auto, auto, auto, auto, auto,
+    1px 1.65rem;
+  background-position:
+    0.2rem 1.25rem,
+    1.15rem 0.3rem,
+    2rem 1.15rem,
+    3.05rem 0.15rem,
+    4rem 1.45rem,
+    4.85rem 0.35rem,
+    5.75rem 1.2rem,
+    6.55rem 0.7rem,
+    3.5rem 1.15rem;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.public-invitation--aquarelle .aquarelle-hero__mockup-copy {
+  position: absolute;
+  z-index: 5;
+  right: 1.25rem;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 4rem);
+  left: 1.25rem;
+  display: grid;
+  justify-items: center;
+  gap: 0.3rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+.public-invitation--aquarelle .aquarelle-hero__mockup-kicker {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.95);
+  font-family: var(--wedding-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.15;
+  text-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.32);
+}
+
+.public-invitation--aquarelle .aquarelle-hero__mockup-names {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.05em;
+  margin: 0;
+  color: #ffffff;
+  font-family: var(--wedding-script);
+  font-size: clamp(3.2rem, 15vw, 5rem);
+  font-weight: 400;
+  line-height: 0.86;
+  letter-spacing: -0.04em;
+  text-shadow: 0 0.45rem 1.35rem rgba(0, 0, 0, 0.42);
+}
+
+.public-invitation--aquarelle .aquarelle-hero__mockup-ampersand {
+  color: rgba(230, 194, 101, 0.98);
+  font-family: var(--wedding-serif);
+  font-size: 0.7em;
+  letter-spacing: 0;
+   margin-left: 0.4em;
+}
+
+.public-invitation--aquarelle .aquarelle-hero__mockup-date {
+  display: grid;
+  grid-template-columns: minmax(2.2rem, 1fr) auto minmax(2.2rem, 1fr);
+  align-items: center;
+  gap: 0.8rem;
+  width: min(14rem, 85%);
+  margin-top: 1.25rem;
+  color: rgba(255, 255, 255, 0.96);
+  font-family: var(--wedding-serif);
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  text-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.3);
+}
+
+.public-invitation--aquarelle .aquarelle-hero__mockup-date span {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(205, 165, 71, 0.05) 0%, rgba(214, 178, 87, 1) 48%, rgba(205, 165, 71, 0.05) 100%);
+}
+
+@media (max-width: 24rem) {
+  .public-invitation--aquarelle .aquarelle-hero__mockup-pill {
+    top: calc(env(safe-area-inset-top, 0px) + 4.55rem);
+    min-height: 2.2rem;
+    padding: 0.35rem 0.86rem;
+    font-size: 0.84rem;
+  }
+
+  .public-invitation--aquarelle .aquarelle-hero__mockup-frame {
+    top: 21.8%;
+    right: 7%;
+    left: 7%;
+    bottom: 23%;
+  }
+
+  .public-invitation--aquarelle .aquarelle-hero__mockup-copy {
+    right: 0.95rem;
+    left: 0.95rem;
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 3.65rem);
+  }
+
+  .public-invitation--aquarelle .aquarelle-hero__mockup-kicker {
+    font-size: 1.32rem;
+  }
+
+  .public-invitation--aquarelle .aquarelle-hero__mockup-date {
+    font-size: 1rem;
+  }
+
+  .public-invitation--aquarelle .aquarelle-hero__mockup-botanical--bottom-left,
+  .public-invitation--aquarelle .aquarelle-hero__mockup-botanical--bottom-right {
+    bottom: 5.2rem;
+    width: 9.4rem;
+  }
+}
+
+/* =====================================================================
+   Realistic envelope refinement for opening screen
+   ===================================================================== */
+.aquarelle-opening__photo {
+  filter: saturate(0.88) contrast(0.98) brightness(0.62) !important;
+}
+
+.aquarelle-opening__photo-blur {
+  background:
+    radial-gradient(circle at 18% 24%, rgba(102, 109, 125, 0.24) 0, transparent 18%),
+    radial-gradient(circle at 82% 18%, rgba(97, 105, 120, 0.2) 0, transparent 19%),
+    radial-gradient(circle at 34% 72%, rgba(74, 81, 94, 0.16) 0, transparent 24%),
+    linear-gradient(180deg, rgba(14, 16, 22, 0.52) 0%, rgba(14, 16, 22, 0.26) 36%, rgba(10, 12, 18, 0.62) 100%),
+    linear-gradient(90deg, rgba(8, 10, 15, 0.42) 0%, rgba(8, 10, 15, 0.12) 22%, rgba(8, 10, 15, 0.12) 78%, rgba(8, 10, 15, 0.44) 100%);
+  backdrop-filter: none !important;
+}
+
+.aquarelle-opening__vignette {
+  box-shadow:
+    inset 0 0 9rem rgba(2, 3, 5, 0.72),
+    inset 0 -8rem 9rem rgba(3, 5, 8, 0.58),
+    inset 0 8rem 7rem rgba(4, 5, 8, 0.42);
+}
+
+.aquarelle-envelope {
+  width: min(90vw, 25.5rem);
+  height: 19.7rem;
+}
+
+.aquarelle-envelope__shadow {
+  right: 6%;
+  left: 6%;
+  height: 2.95rem;
+  background: rgba(0, 0, 0, 0.52);
+  filter: blur(24px);
+}
+
+.aquarelle-envelope__back {
+  border: 1.4px solid rgba(184, 188, 198, 0.92);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.99) 0%, rgba(247, 248, 250, 0.99) 52%, rgba(232, 235, 241, 0.98) 100%);
+  box-shadow:
+    0 28px 50px rgba(0, 0, 0, 0.35),
+    0 2px 0 rgba(255, 255, 255, 0.9) inset,
+    0 -1px 0 rgba(210, 214, 221, 0.95) inset;
+}
+
+.aquarelle-envelope__back::before {
+  content: "";
+  position: absolute;
+  inset: 0.45rem 0.55rem;
+  border: 1px solid rgba(216, 219, 226, 0.85);
+  border-radius: 0.2rem;
+  pointer-events: none;
+}
+
+.aquarelle-envelope__lining {
+  width: calc(100% - 0.18rem);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.32), rgba(255,255,255,0) 35%),
+    radial-gradient(circle at 22% 70%, rgba(226, 196, 112, 0.45), transparent 23%),
+    radial-gradient(circle at 78% 62%, rgba(205, 210, 220, 0.66), transparent 28%),
+    linear-gradient(145deg, #fbfaf7, #e2e4ea);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75);
+}
+
+.aquarelle-envelope__front {
+  filter: none;
+}
+
+.aquarelle-envelope__front--left {
+  background: linear-gradient(132deg, #fbfbf9 0%, #eaedf2 46%, #dfe2e8 100%);
+  box-shadow: inset 1px 0 0 rgba(255,255,255,0.88), inset -1px 0 0 rgba(191, 196, 206, 0.55);
+}
+
+.aquarelle-envelope__front--right {
+  background: linear-gradient(228deg, #fbfbf9 0%, #ebedf2 46%, #dde1e8 100%);
+  box-shadow: inset -1px 0 0 rgba(255,255,255,0.88), inset 1px 0 0 rgba(191, 196, 206, 0.55);
+}
+
+.aquarelle-envelope__front--bottom {
+  background: linear-gradient(180deg, #f7f7f4 0%, #e8ebf0 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.9),
+    inset 0 -1px 0 rgba(193, 197, 205, 0.8),
+    0 -1px 0 rgba(176, 182, 191, 0.62);
+}
+
+.aquarelle-envelope__flap {
+  background: linear-gradient(180deg, #ffffff 0%, #f2f3f6 58%, #dfe2e8 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.94),
+    0 0 0 1px rgba(201,205,214,0.82),
+    0 6px 8px rgba(20, 20, 26, 0.12);
+}
+
+.aquarelle-envelope__flap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  clip-path: inherit;
+  background: linear-gradient(180deg, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0) 40%);
+  pointer-events: none;
+}
+
+.aquarelle-envelope__flap::after {
+  content: "";
+  position: absolute;
+  inset: 0.6rem 1rem 1.05rem;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  border-top: 1px solid rgba(210, 214, 221, 0.92);
+  pointer-events: none;
+}
+
+.aquarelle-envelope__flap-inner {
+  background:
+    radial-gradient(circle at 22% 30%, rgba(227, 192, 103, 0.4), transparent 22%),
+    radial-gradient(circle at 76% 38%, rgba(207, 212, 222, 0.66), transparent 29%),
+    linear-gradient(180deg, #f7f6f1 0%, #eeefe9 100%);
+}
+
+.aquarelle-envelope__letter {
+  border: 1px solid rgba(181, 139, 54, 0.45);
+  box-shadow:
+    0 14px 32px rgba(24, 24, 30, 0.18),
+    0 1px 0 rgba(255,255,255,0.92) inset;
+}
+
+.aquarelle-envelope__seal {
+  top: 10.12rem;
+  width: 4.55rem;
+  height: 4.55rem;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 32% 24%, rgba(255, 249, 220, 0.95) 0, rgba(255, 249, 220, 0.2) 24%, transparent 25%),
+    radial-gradient(circle at 68% 72%, rgba(114, 70, 15, 0.34) 0, transparent 40%),
+    radial-gradient(circle at 50% 52%, rgba(238, 201, 102, 0.94) 0%, rgba(205, 156, 57, 0.96) 52%, rgba(124, 84, 23, 1) 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(118, 77, 18, 0.55),
+    inset 0 0 0 0.22rem rgba(255, 224, 144, 0.28),
+    inset 0 -0.35rem 0.75rem rgba(116, 75, 19, 0.38),
+    0 10px 18px rgba(35, 24, 8, 0.42),
+    0 0 0 1px rgba(255, 233, 173, 0.12);
+}
+
+.aquarelle-envelope__seal::before {
+  content: "";
+  position: absolute;
+  inset: 0.42rem;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 240, 186, 0.5);
+  box-shadow: inset 0 0 0 1px rgba(134, 88, 21, 0.18);
+  opacity: 0.92;
+}
+
+.aquarelle-envelope__seal::after {
+  content: "";
+  position: absolute;
+  inset: 0.95rem;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 30%, rgba(255,255,255,0.2), transparent 25%),
+    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(98, 61, 16, 0.06));
+  opacity: 0.55;
+}
+
+.aquarelle-envelope__seal-rim {
+  inset: 0.56rem;
+  border: 1px solid rgba(255, 243, 200, 0.58);
+  box-shadow: inset 0 0 0 1px rgba(150, 101, 27, 0.18);
+}
+
+.aquarelle-envelope__seal-copy {
+  font-size: 0.98rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-shadow:
+    0 1px 0 rgba(108, 70, 16, 0.8),
+    0 0 8px rgba(255, 241, 197, 0.1);
+}
+
+/* Elimina el espacio gris al final de la invitación */
+.public-invitation.public-invitation--aquarelle {
+  padding-bottom: 0;
 }

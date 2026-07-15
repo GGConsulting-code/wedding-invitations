@@ -21,7 +21,6 @@ function formatEventTime(value, timeZone) {
     hour: "numeric",
     minute: "2-digit",
     timeZone,
-    timeZoneName: "short",
   }).format(date);
 }
 
@@ -32,7 +31,7 @@ export function EventDetails({ weddingDateTime, timeZone }) {
       <BotanicalSprig className="aquarelle-section__sprig aquarelle-section__sprig--event" />
       <header className="aquarelle-section__heading">
         <p className="invitation-section__eyebrow">El gran día</p>
-        <h2 id="event-details-title" className="invitation-section__title">Ceremonia</h2>
+        <h2 id="event-details-title" className="invitation-section__title">Ceremonia Civil</h2>
       </header>
 
       <div className="invitation-event-details__card aquarelle-card">

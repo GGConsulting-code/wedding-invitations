@@ -132,7 +132,6 @@ export function AquarelleOpening({ coupleDisplayName, heroPhoto, onOpenInvitatio
         animate={stage === "opening" ? { opacity: 0, y: -18 } : { opacity: 1, y: 0 }}
         transition={{ duration: 0.38 }}
       >
-        <AnimatedCharacters delay={0.12}>Tenemos una noticia…</AnimatedCharacters>
       </motion.header>
 
       <motion.button

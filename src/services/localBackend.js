@@ -37,7 +37,7 @@ let memoryDatabase = createInitialDatabase();
 
 const getStorage = () => {
   try {
-    return typeof window !== "undefined" ? window.localStorage : null;
+    return null;
   } catch {
     return null;
   }

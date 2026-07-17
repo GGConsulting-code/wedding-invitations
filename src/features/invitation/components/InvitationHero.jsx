@@ -74,7 +74,7 @@ export function InvitationHero({
         <span className="aquarelle-hero__mockup-babybreath" aria-hidden="true" />
 
         <figcaption className="aquarelle-hero__mockup-copy">
-          <p className="aquarelle-hero__mockup-kicker">LA BODA DE:</p>
+          <p className="aquarelle-hero__mockup-kicker">NUESTRA BODA:</p>
           <h1 className="aquarelle-hero__mockup-names">
             <span>{firstName}</span>
             <span className="aquarelle-hero__mockup-ampersand"> &amp; </span>

@@ -302,7 +302,7 @@ export const defaultInvitations = Object.freeze([
   },
   {
     id: "7d627086-1020-4065-bddb-a92e459212a8",
-    recipientName: "Gerardo García Morales y familia",
+    recipientName: "Gerardo García Morales y Ofelia de la Cruz García, y familia",
     publicToken: "4a851027-0649-4623-b090-40e1cb86618f",
     clientRequestId: "5843ca01-d5ce-4434-8ffb-a42ea7e2b819",
     status: RSVP_STATUS.PENDING,

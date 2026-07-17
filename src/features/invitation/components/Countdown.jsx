@@ -33,7 +33,6 @@ export function Countdown({ weddingDateTime }) {
   return (
     <section className="invitation-countdown aquarelle-section" aria-labelledby="countdown-title">
       <WatercolorWash className="invitation-countdown__wash invitation-countdown__wash--silver" tone="silver" />
-      <p className="invitation-countdown__kicker">Nos vemos en…</p>
       <h2 id="countdown-title" className="invitation-countdown__heading">Cada vez falta menos</h2>
       <div className="invitation-countdown__grid" role="timer" aria-label={accessibleLabel}>
         {COUNTDOWN_UNITS.map(([key, label], index) => (

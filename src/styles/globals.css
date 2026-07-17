@@ -5933,7 +5933,7 @@ img {
   margin: 0;
   color: rgba(255, 255, 255, 0.95);
   font-family: var(--wedding-serif);
-  font-size: 1.0rem;
+  font-size: .9rem;
   font-weight: 400;
   line-height: 1.15;
   text-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.32);
@@ -5949,7 +5949,7 @@ img {
 
   color: #ffffff;
   font-family: "Italianno", "Allura", "Segoe Script", cursive;
-  font-size: clamp(2.3rem, 11vw, 3.4rem);
+  font-size: clamp(2.3rem, 12.7vw, 3.4rem);
 font-weight: 300;
   line-height: 0.95;
   letter-spacing: 0;
@@ -6014,7 +6014,7 @@ font-weight: 300;
   }
 
   .public-invitation--aquarelle .aquarelle-hero__mockup-date {
-    font-size: .5rem;
+    font-size: .8rem;
   }
 
   .public-invitation--aquarelle .aquarelle-hero__mockup-botanical--bottom-left,

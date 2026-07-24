@@ -68,6 +68,7 @@ export const defaultInvitations = Object.freeze([
     createdAt: "2026-07-20T22:00:00-06:00",
     respondedAt: null,
     active: true,
+    invitacionIndividual: false,
   },
   {
     id: "5423f8e1-f41a-434f-917a-40fc7fc84099",
@@ -79,6 +80,7 @@ export const defaultInvitations = Object.freeze([
     createdAt: "2026-07-20T22:00:00-06:00",
     respondedAt: null,
     active: true,
+    invitacionIndividual: false,
   },
   {
     id: "21386859-2804-4d5e-90b3-05d711bf2592",
@@ -90,6 +92,7 @@ export const defaultInvitations = Object.freeze([
     createdAt: "2026-07-20T22:00:00-06:00",
     respondedAt: null,
     active: true,
+    invitacionIndividual: false,
   },
   {
     id: "b0293a92-7e6d-4eba-8cb2-b79a57fe2166",
@@ -101,6 +104,7 @@ export const defaultInvitations = Object.freeze([
     createdAt: "2026-07-20T22:00:00-06:00",
     respondedAt: null,
     active: true,
+    invitacionIndividual: false,
   },
   {
     id: "97d5b4e6-fe04-4e00-a182-4c470e397c07",
@@ -112,6 +116,7 @@ export const defaultInvitations = Object.freeze([
     createdAt: "2026-07-20T22:00:00-06:00",
     respondedAt: null,
     active: true,
+    invitacionIndividual: false,
   },
   {
     id: "46d22357-d781-49e9-8c88-82d523a50064",
@@ -123,6 +128,7 @@ export const defaultInvitations = Object.freeze([
     createdAt: "2026-07-20T22:00:00-06:00",
     respondedAt: null,
     active: true,
+    invitacionIndividual: false,
   },
   {
     id: "688d4c5e-2d85-4075-86a9-b2f626083067",
@@ -134,6 +140,7 @@ export const defaultInvitations = Object.freeze([
     createdAt: "2026-07-20T22:00:00-06:00",
     respondedAt: null,
     active: true,
+    invitacionIndividual: false,
   },
   {
     id: "83e3506c-e909-4e3d-8f09-7de75d86a079",
@@ -145,6 +152,7 @@ export const defaultInvitations = Object.freeze([
     createdAt: "2026-07-20T22:00:00-06:00",
     respondedAt: null,
     active: true,
+    invitacionIndividual: false,
   },
   {
     id: "3783ce4b-44cd-456f-bd64-891bf442a21e",
@@ -156,6 +164,7 @@ export const defaultInvitations = Object.freeze([
     createdAt: "2026-07-20T22:00:00-06:00",
     respondedAt: null,
     active: true,
+    invitacionIndividual: false,
   },
   {
     id: "36a48da4-d1dc-468c-9edf-af9dfc797f48",
@@ -167,6 +176,7 @@ export const defaultInvitations = Object.freeze([
     createdAt: "2026-07-20T22:00:00-06:00",
     respondedAt: null,
     active: true,
+    invitacionIndividual: false,
   },
   {
     id: "980f804d-8317-4e35-b20e-4d68c556dd5c",
@@ -178,6 +188,7 @@ export const defaultInvitations = Object.freeze([
     createdAt: "2026-07-20T22:00:00-06:00",
     respondedAt: null,
     active: true,
+    invitacionIndividual: false,
   },
   {
     id: "e1cae9d7-20bd-4180-8d4d-1ab04c296253",
@@ -189,6 +200,7 @@ export const defaultInvitations = Object.freeze([
     createdAt: "2026-07-20T22:00:00-06:00",
     respondedAt: null,
     active: true,
+    invitacionIndividual: false,
   },
   {
     id: "303fd24b-230a-4cb6-80b6-a836ffe99249",
@@ -200,6 +212,7 @@ export const defaultInvitations = Object.freeze([
     createdAt: "2026-07-20T22:00:00-06:00",
     respondedAt: null,
     active: true,
+    invitacionIndividual: false,
   },
   {
     id: "ae9621e2-6345-4c69-b893-d5822086e193",
@@ -211,6 +224,7 @@ export const defaultInvitations = Object.freeze([
     createdAt: "2026-07-20T22:00:00-06:00",
     respondedAt: null,
     active: true,
+    invitacionIndividual: false,
   },
   {
     id: "283bbeaa-f839-436a-a32f-2e6dcd9904d1",
@@ -222,6 +236,7 @@ export const defaultInvitations = Object.freeze([
     createdAt: "2026-07-20T22:00:00-06:00",
     respondedAt: null,
     active: true,
+    invitacionIndividual: false,
   },
   {
     id: "c6bc5606-c6e1-4878-9e6f-77c8d51dc0ca",
@@ -233,6 +248,7 @@ export const defaultInvitations = Object.freeze([
     createdAt: "2026-07-20T22:00:00-06:00",
     respondedAt: null,
     active: true,
+    invitacionIndividual: false,
   },
   {
     id: "544ae586-ffdb-4071-b561-cbdbd1283ebe",
@@ -244,6 +260,7 @@ export const defaultInvitations = Object.freeze([
     createdAt: "2026-07-20T22:00:00-06:00",
     respondedAt: null,
     active: true,
+    invitacionIndividual: false,
   },
   {
     id: "2fe83c7a-d689-44c2-932b-acd721206773",
@@ -255,6 +272,7 @@ export const defaultInvitations = Object.freeze([
     createdAt: "2026-07-20T22:00:00-06:00",
     respondedAt: null,
     active: true,
+    invitacionIndividual: false,
   },
   {
     id: "65b8d9e3-0ba9-4cba-871e-15037ef50b6b",
@@ -266,6 +284,7 @@ export const defaultInvitations = Object.freeze([
     createdAt: "2026-07-20T22:00:00-06:00",
     respondedAt: null,
     active: true,
+    invitacionIndividual: false,
   },
   {
     id: "17c23bd4-fb09-4ddf-9886-e0e5c16cc437",
@@ -277,6 +296,7 @@ export const defaultInvitations = Object.freeze([
     createdAt: "2026-07-20T22:00:00-06:00",
     respondedAt: null,
     active: true,
+    invitacionIndividual: false,
   },
   {
     id: "1fb218c3-da0b-4c8f-8c99-37b4fbc99698",
@@ -288,6 +308,7 @@ export const defaultInvitations = Object.freeze([
     createdAt: "2026-07-20T22:00:00-06:00",
     respondedAt: null,
     active: true,
+    invitacionIndividual: true,
   },
   {
     id: "bed3e7f7-4f4c-4731-8157-5748b9d95088",
@@ -299,6 +320,7 @@ export const defaultInvitations = Object.freeze([
     createdAt: "2026-07-20T22:00:00-06:00",
     respondedAt: null,
     active: true,
+    invitacionIndividual: true,
   },
   {
     id: "a28782bc-d175-4b96-9f25-ceab50f57400",
@@ -310,6 +332,7 @@ export const defaultInvitations = Object.freeze([
     createdAt: "2026-07-20T22:00:00-06:00",
     respondedAt: null,
     active: true,
+    invitacionIndividual: false,
   },
   {
     id: "12b42efb-e12e-4236-8743-8ccea831a093",
@@ -321,6 +344,7 @@ export const defaultInvitations = Object.freeze([
     createdAt: "2026-07-20T22:00:00-06:00",
     respondedAt: null,
     active: true,
+    invitacionIndividual: true,
   },
   {
     id: "04ca87fd-0e1e-4ad9-aeef-acf21cf8c517",
@@ -332,6 +356,7 @@ export const defaultInvitations = Object.freeze([
     createdAt: "2026-07-20T22:00:00-06:00",
     respondedAt: null,
     active: true,
+    invitacionIndividual: true,
   },
   {
     id: "c595f67f-66ff-47c3-b942-567dcd65ca66",
@@ -343,6 +368,7 @@ export const defaultInvitations = Object.freeze([
     createdAt: "2026-07-20T22:00:00-06:00",
     respondedAt: null,
     active: true,
+    invitacionIndividual: true,
   },
   {
     id: "6e649c47-fc09-43c6-88e1-8be07471fa94",
@@ -354,6 +380,7 @@ export const defaultInvitations = Object.freeze([
     createdAt: "2026-07-20T22:00:00-06:00",
     respondedAt: null,
     active: true,
+    invitacionIndividual: true,
   },
   {
     id: "d9373afc-f463-4b7f-a561-64f5d973fbc3",
@@ -365,6 +392,7 @@ export const defaultInvitations = Object.freeze([
     createdAt: "2026-07-20T22:00:00-06:00",
     respondedAt: null,
     active: true,
+    invitacionIndividual: true,
   },
   {
     id: "9329428b-9e0a-41ad-925d-46ade1d21686",
@@ -376,6 +404,7 @@ export const defaultInvitations = Object.freeze([
     createdAt: "2026-07-20T22:00:00-06:00",
     respondedAt: null,
     active: true,
+    invitacionIndividual: true,
   },
   {
     id: "170f8268-f3ea-43cd-9450-85dd15b24a60",
@@ -387,5 +416,42 @@ export const defaultInvitations = Object.freeze([
     createdAt: "2026-07-20T22:00:00-06:00",
     respondedAt: null,
     active: true,
+    invitacionIndividual: true,
   },
+  {
+  id: "c06eb367-18af-442c-8137-6c36289d2be8",
+  recipientName: "Jennifer García Molina",
+  publicToken: "980c0fe6-4071-459f-86a9-91b26c94ac11",
+  clientRequestId: "39ec1e44-9a24-43f2-80da-48b49d016770",
+  status: RSVP_STATUS.PENDING,
+  channel: INVITATION_CHANNEL.WHATSAPP,
+  createdAt: "2026-07-20T22:00:00-06:00",
+  respondedAt: null,
+  active: true,
+  invitacionIndividual: true,
+},
+{
+  id: "07bc9626-76e1-4d7d-b0ca-7addafbc859e",
+  recipientName: "Mayte Becerril Jiménez",
+  publicToken: "849086d0-2b83-489a-86da-0ec3d7e5ca47",
+  clientRequestId: "a7399db1-0e11-4426-892f-252609bcc126",
+  status: RSVP_STATUS.PENDING,
+  channel: INVITATION_CHANNEL.WHATSAPP,
+  createdAt: "2026-07-20T22:00:00-06:00",
+  respondedAt: null,
+  active: true,
+  invitacionIndividual: true,
+},
+{
+  id: "0d59ba7e-4599-46c2-b6a4-a360427b42a1",
+  recipientName: "Mónica Ramírez Gutiérrez",
+  publicToken: "f085239e-fde6-435a-8b7d-c560d5618c0e",
+  clientRequestId: "288e9463-7683-4afe-bca5-b2321499301f",
+  status: RSVP_STATUS.PENDING,
+  channel: INVITATION_CHANNEL.WHATSAPP,
+  createdAt: "2026-07-20T22:00:00-06:00",
+  respondedAt: null,
+  active: true,
+  invitacionIndividual: true,
+},
 ]);

@@ -302,7 +302,7 @@ export function PublicInvitationPage() {
           <WatercolorWash className="aquarelle-footer__wash" tone="gold" />
           <span aria-hidden="true">♥</span>
           <p>Con cariño, {event.coupleDisplayName}</p>
-          <p>Los esperamos</p>
+          <p>{invitation.invitacionIndividual ? "!Te esperamos!" : "!Los esperamos!"}</p>
         </footer>
       </div>
 

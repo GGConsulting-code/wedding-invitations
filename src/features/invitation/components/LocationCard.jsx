@@ -19,21 +19,12 @@ export function LocationCard({ address }) {
           <span className="invitation-location__pin" aria-hidden="true">
             <MapPin size={25} />
           </span>
-          <p className="invitation-location__microcopy">Nos encontraremos en</p>
+          <p className="invitation-location__microcopy">Ubicación</p>
+          <div className="invitation-event-details__divider" aria-hidden="true" />
           <h3 className="invitation-location__venue">{address.venueName}</h3>
           <p className="invitation-location__address">{address.formattedAddress}</p>
-          <a
-            className="invitation-location__directions"
-            href={address.mapsNavigationUrl}
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            <Navigation size={18} aria-hidden="true" />
-            Pulsa para ver en Maps
-          </a>
-        </div>
-
-        {address.mapEmbedUrl ? (
+         
+{address.mapEmbedUrl ? (
           <div className="invitation-location__map-frame">
             <iframe
               className="invitation-location__map"
@@ -50,6 +41,18 @@ export function LocationCard({ address }) {
             <p>Consulta la ruta en tu aplicación de mapas.</p>
           </div>
         )}
+          
+        </div>
+ <a
+            className="invitation-location__directions"
+            href={address.mapsNavigationUrl}
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <Navigation size={18} aria-hidden="true" />
+            Pulsa para ver en Maps
+          </a>
+        
       </div>
     </section>
   );

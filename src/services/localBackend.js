@@ -151,6 +151,7 @@ const buildPublicInvitation = (invitation, weddingConfig) => ({
   invitation: {
     recipientName: invitation.recipientName,
     status: invitation.status,
+    invitacionIndividual: invitation.invitacionIndividual === true,
   },
   event: {
     coupleDisplayName: weddingConfig.coupleDisplayName,
@@ -328,6 +329,7 @@ const createInvitation = async (payload, { signal } = {}) => {
       createdAt: new Date().toISOString(),
       respondedAt: null,
       active: true,
+      invitacionIndividual: false,
     };
     mutableDatabase.invitations.unshift(invitation);
     return clone(invitation);

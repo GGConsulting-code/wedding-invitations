@@ -1946,7 +1946,7 @@ img {
 .invitation-location__microcopy {
   margin: 0 0 0.6rem;
   color: rgba(255, 255, 255, 0.6);
-  font-size: 0.70rem;
+  font-size: 0.56rem;
   letter-spacing: 0.26em;
   text-transform: uppercase;
 }
@@ -3649,8 +3649,8 @@ img {
 
 .public-invitation--aquarelle .invitation-location__microcopy {
   color: var(--aq-muted);
-  font-size: 0.70;
-  font-weight: 700;
+  font-size: 0.56;
+  font-weight: 500;
   letter-spacing: 0.26em;
   text-transform: uppercase;
 }
@@ -5146,7 +5146,7 @@ img {
 .public-invitation--aquarelle .invitation-event-details__label,
 .public-invitation--aquarelle .invitation-location__microcopy {
   font-family: var(--aq-sans);
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.34em;
 }
 

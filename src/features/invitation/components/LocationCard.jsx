@@ -19,7 +19,13 @@ export function LocationCard({ address }) {
           <span className="invitation-location__pin" aria-hidden="true">
             <MapPin size={25} />
           </span>
-          <p className="invitation-location__microcopy">Ubicación</p>
+
+          <span>
+            <p className="invitation-location__microcopy">Ubicación</p>
+          </span>
+          
+          
+          
           <div className="invitation-event-details__divider" aria-hidden="true" />
           <h3 className="invitation-location__venue">{address.venueName}</h3>
           <p className="invitation-location__address">{address.formattedAddress}</p>
